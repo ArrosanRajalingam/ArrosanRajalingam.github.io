@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Arrosan Rajalingam</title>
-  <meta name="description" content="Personal website of Arrosan Rajalingam — research, projects, publications, and contact." />
+  <title>Arrosan Rajalingam — PhD Researcher, University of Aberdeen</title>
+  <meta name="description" content="PhD researcher at the University of Aberdeen studying meiotic recombination, DSB formation, and chromosome‑axis proteins. Includes research, projects, publications, and contact." />
   <meta property="og:title" content="Arrosan Rajalingam" />
-  <meta property="og:description" content="Researcher — genomics, meiosis, data analysis." />
+  <meta property="og:description" content="PhD researcher at the University of Aberdeen studying meiotic recombination, DSB formation, and chromosome‑axis proteins." />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="/assets/og-image.png" />
   <link rel="icon" href="/assets/favicon.png" />
@@ -57,6 +57,25 @@
       .grid.cols-2{grid-template-columns:1fr}
     }
   </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Arrosan Rajalingam",
+    "url": "https://arrosanrajalingam.github.io/",
+    "email": "mailto:a.rajalingam.23@abdn.ac.uk",
+    "affiliation": { "@type": "Organization", "name": "University of Aberdeen" },
+    "sameAs": [
+      "https://github.com/ArrosanRajalingam",
+      "https://scholar.google.com/citations?user=ezPEEUIAAAAJ&hl=en",
+      "https://orcid.org/0000-0002-1933-7741",
+      "https://www.linkedin.com/in/arrosan06",
+      "https://x.com/R_Arrosan",
+      "https://www.abdn.ac.uk/people/a.rajalingam.23"
+    ]
+  }
+  </script>
 </head>
 <body>
   <header>
@@ -64,7 +83,7 @@
       <nav>
         <div class="nav-left">
           <span class="brand">Arrosan Rajalingam</span>
-          <span class="pill">Research • Genomics • Data</span>
+          <span class="pill">PhD Researcher • University of Aberdeen</span>
         </div>
         <div class="links" aria-label="Section links">
           <a href="#about">About</a>
@@ -83,91 +102,97 @@
       <div class="card">
         <div class="inner">
           <div class="kicker">Hello! I'm Arrosan</div>
-          <h1>Researcher working at the intersection of <span style="color:var(--brand)">meiosis</span>, <span style="color:var(--accent)">DNA repair</span>, and <span style="color:#f2c984">computational analysis</span>.</h1>
-          <p>I study double‑strand breaks (DSBs), chromosome architecture, and use R/Python to quantify gels and ChIP‑seq data. I enjoy building clear, reproducible analysis pipelines and visualisations.</p>
-          <p class="muted">Actively exploring: DSB quantification, Red1/Rec8 pathways, and better tooling for lane‑profile analysis.</p>
+          <h1>Researching how cohesin and chromosome‑axis proteins initiate meiotic recombination.</h1>
+          <p>I am a PhD researcher at the Institute of Medical Sciences, University of Aberdeen. I study DNA double‑strand break (DSB) formation and build reproducible analysis pipelines for gels and ChIP‑seq.</p>
           <div style="margin-top:18px;display:flex;gap:12px;flex-wrap:wrap">
-            <a class="btn" href="#projects">See projects</a>
+            <a class="btn" href="mailto:a.rajalingam.23@abdn.ac.uk">Email me</a>
             <a class="btn" href="/cv/Arrosan_Rajalingam_CV.pdf">Download CV</a>
+            <a class="btn" href="https://github.com/ArrosanRajalingam">GitHub</a>
+            <a class="btn" href="https://scholar.google.com/citations?user=ezPEEUIAAAAJ&hl=en">Google Scholar</a>
+            <a class="btn" href="https://orcid.org/0000-0002-1933-7741">ORCID</a>
           </div>
         </div>
       </div>
       <aside>
-        <img class="avatar" src="/assets/profile.jpg" alt="Portrait of Arrosan Rajalingam" />
+        <img class="avatar" src="/Asset/Profile_pic.jpg" alt="Portrait of Arrosan Rajalingam" />
       </aside>
     </section>
 
     <!-- ABOUT -->
     <section id="about" class="card section">
       <h2>About</h2>
-      <p>I'm a molecular biologist with a focus on meiotic chromosome structure and DNA double‑strand break formation. Recently, I've been developing analysis scripts for DSB gel quantification and figure‑ready plots.</p>
-      <p class="muted">Previously: add a short bio, affiliations, and what you’re open to (collabs, talks, PhD/positions).</p>
+      <p>I’m a PhD researcher in the Murakami Lab (IMS, University of Aberdeen). My work focuses on the molecular mechanisms that trigger meiotic recombination, particularly the interplay between cohesin and chromosome‑axis proteins. I use ChIP‑seq and quantitative analysis to link protein binding to DSB landscapes.</p>
       <div style="margin-top:10px">
         <span class="tag">Meiosis</span>
-        <span class="tag">Red1 / Rec8</span>
-        <span class="tag">Quantitative imaging</span>
+        <span class="tag">Cohesin / Axis</span>
+        <span class="tag">DSBs</span>
         <span class="tag">R & Python</span>
+        <span class="tag">ChIP‑seq</span>
       </div>
     </section>
 
     <!-- RESEARCH FOCUS -->
-    <section id="research" class="grid cols-3" style="margin-top:22px">
-      <div class="card section">
-        <h3>DSB Gel Analysis</h3>
-        <p>Clean pipeline to extract lane profiles, subtract background, detect parental bands, and compute %DSB with confidence ribbons.</p>
-      </div>
-      <div class="card section">
-        <h3>Chromosome Architecture</h3>
-        <p>Exploring Red1/Rec8 mutants and their impact on DSB landscapes. From raw TIFFs to interpretable figures.</p>
-      </div>
-      <div class="card section">
-        <h3>Reproducible Figures</h3>
-        <p>Publication‑ready plots: barplots with italics/Δ notation, error bars, and consistent palettes for talks and posters.</p>
+    <section id="research" class="card section" style="margin-top:22px">
+      <h2>Research Focus</h2>
+      <h3 style="margin-top:6px">Initiating meiotic recombination: how axis proteins trigger DNA double‑strand breaks</h3>
+      <p>At the Murakami Lab, we investigate the initiation of meiotic recombination, focusing on the programmed formation of DNA double‑strand breaks (DSBs) by specialised DSB proteins. Our goal is to map the molecular framework that governs how these proteins bind along meiotic chromosomes, revealing the principles behind robust recombination.</p>
+      <p>My research examines the molecular mechanisms by which chromosome‑axis proteins initiate DSB formation. This has important implications for reproductive health: when recombination fails, errors in chromosome number or structure can arise, leading to miscarriage or congenital syndromes such as Down syndrome, Edwards syndrome, Patau syndrome, and Turner syndrome. About 0.3% of newborns are affected by such abnormalities. By clarifying these pathways, we aim to contribute to strategies that reduce the incidence of chromosomal disorders.</p>
+
+      <div class="grid cols-3" style="margin-top:14px">
+        <div class="card section">
+          <h4>DSB Protein Mapping</h4>
+          <p>Charting binding sites across meiotic chromosomes to understand where and when DSBs are programmed.</p>
+        </div>
+        <div class="card section">
+          <h4>Axis Protein Mechanisms</h4>
+          <p>Dissecting how Red1, Rec8, and other axis components promote and position DSB formation.</p>
+        </div>
+        <div class="card section">
+          <h4>Medical Significance</h4>
+          <p>Linking recombination defects to chromosomal aneuploidies that underlie miscarriage and congenital syndromes.</p>
+        </div>
       </div>
     </section>
 
     <!-- PROJECTS -->
     <section id="projects" class="card section" style="margin-top:22px">
       <h2>Projects</h2>
-      <div class="grid cols-2" style="margin-top:10px">
-        <article class="card">
-          <div class="inner">
-            <h3>DSB Gel Quantification</h3>
-            <p>Code to read CSV lane profiles, subtract background, and compute %DSB per lane with plots.</p>
-            <p class="muted">Tech: R (tidyverse), base graphics, optional Python port.</p>
-            <p><a href="https://github.com/ArrosanRajalingam/DSB_Gel_Analysis">GitHub repo →</a></p>
-          </div>
-        </article>
-        <article class="card">
-          <div class="inner">
-            <h3>ChIP Analysis Helpers</h3>
-            <p>Small utilities and scripts to standardise processing and figure export for ChIP experiments.</p>
-            <p class="muted">Tech: R, ggplot2, command‑line wrappers.</p>
-            <p><a href="#">Coming soon</a></p>
-          </div>
-        </article>
+      <p class="muted">This list pulls automatically from my public GitHub repositories.</p>
+
+      <div style="margin:12px 0;display:flex;gap:10px;flex-wrap:wrap">
+        <input id="repo-search" type="search" placeholder="Search repositories..." aria-label="Search repositories" style="flex:1;min-width:220px;padding:10px 12px;border-radius:10px;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.04);color:var(--text)" />
+        <select id="repo-language" aria-label="Filter by language" style="padding:10px 12px;border-radius:10px;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.04);color:var(--text)">
+          <option value="">All languages</option>
+        </select>
       </div>
+
+      <div id="repo-grid" class="grid cols-2" style="margin-top:10px"></div>
+
+      <div id="repo-status" class="muted" style="margin-top:10px"></div>
     </section>
 
     <!-- PUBLICATIONS -->
     <section id="publications" class="card section" style="margin-top:22px">
-      <h2>Publications</h2>
+      <h2>Publications (selected)</h2>
       <ul>
-        <li><strong>Your Paper Title</strong> — Journal, Year. <span class="muted">Add DOI/links.</span></li>
-        <li><strong>Another Article</strong> — Venue, Year.</li>
+        <li><strong>Assessment of mental health problems among adolescents in Sri Lanka</strong> — Health Science Reports, 2022. <span class="muted">Add DOI/link</span></li>
+        <li><strong>Parental engagement and adolescents' mental health wellbeing</strong> — Public Health Review, 2021. <span class="muted">Add DOI/link</span></li>
       </ul>
+      <p class="muted" style="margin-top:10px">See more on <a href="https://scholar.google.com/citations?user=ezPEEUIAAAAJ&hl=en">Google Scholar</a> or <a href="https://orcid.org/0000-0002-1933-7741">ORCID</a>.</p>
     </section>
 
     <!-- CONTACT -->
     <section id="contact" class="card section" style="margin-top:22px">
       <h2>Contact</h2>
-      <p>Email: <a href="mailto:arrosan.rajalingam@gmail.com">arrosan.rajalingam@gmail.com</a></p>
-      <p>
-        <a href="https://github.com/ArrosanRajalingam">GitHub</a> ·
-        <a href="#">Google Scholar</a> ·
-        <a href="#">ORCID</a> ·
-        <a href="#">LinkedIn</a>
-      </p>
+      <p>Email: <a href="mailto:a.rajalingam.23@abdn.ac.uk">a.rajalingam.23@abdn.ac.uk</a> <span class="muted">(alt: <a href="mailto:arrosan.rajalingam@gmail.com">gmail</a>)</span></p>
+      <div style="margin-top:6px;display:flex;flex-wrap:wrap;gap:10px">
+        <a class="btn" href="https://github.com/ArrosanRajalingam">GitHub</a>
+        <a class="btn" href="https://scholar.google.com/citations?user=ezPEEUIAAAAJ&hl=en">Google Scholar</a>
+        <a class="btn" href="https://orcid.org/0000-0002-1933-7741">ORCID</a>
+        <a class="btn" href="https://www.linkedin.com/in/arrosan06">LinkedIn</a>
+        <a class="btn" href="https://x.com/R_Arrosan">X / Twitter</a>
+        <a class="btn" href="https://www.abdn.ac.uk/people/a.rajalingam.23">University Profile</a>
+      </div>
     </section>
 
     <footer class="footer container" role="contentinfo">
@@ -179,7 +204,76 @@
 
   <script>
     document.getElementById('y').textContent = new Date().getFullYear();
+
+    // --- Dynamic GitHub repo grid ---
+    (function(){
+      const username = 'ArrosanRajalingam';
+      const grid = document.getElementById('repo-grid');
+      const status = document.getElementById('repo-status');
+      const search = document.getElementById('repo-search');
+      const langSelect = document.getElementById('repo-language');
+      if(!grid) return;
+
+      const fmtDate = (s)=> new Date(s).toLocaleDateString(undefined, {year:'numeric', month:'short', day:'2-digit'});
+
+      function render(list){
+        grid.innerHTML = '';
+        if(!list.length){ grid.innerHTML = '<p class="muted">No repositories match your filters.</p>'; return; }
+        list.forEach(r => {
+          const a = document.createElement('article');
+          a.className = 'card';
+          a.innerHTML = `
+            <div class="inner">
+              <h3 style="margin:0 0 6px"><a href="${r.html_url}">${r.name}</a></h3>
+              <p class="muted" style="min-height:2.6em">${r.description ? r.description : ''}</p>
+              <div class="muted" style="display:flex;gap:14px;flex-wrap:wrap;margin-top:8px">
+                ${r.language ? `<span>${r.language}</span>` : ''}
+                <span>★ ${r.stargazers_count}</span>
+                <span>Updated ${fmtDate(r.updated_at)}</span>
+              </div>
+            </div>`;
+          grid.appendChild(a);
+        });
+      }
+
+      function populateLanguages(repos){
+        const langs = Array.from(new Set(repos.map(r=>r.language).filter(Boolean))).sort();
+        langs.forEach(l=>{
+          const opt = document.createElement('option');
+          opt.value = l; opt.textContent = l; langSelect.appendChild(opt);
+        });
+      }
+
+      function applyFilters(){
+        const q = (search?.value || '').toLowerCase();
+        const L = (langSelect?.value || '');
+        let list = window.__repos || [];
+        if(L) list = list.filter(r=>r.language === L);
+        if(q) list = list.filter(r => (r.name+" "+(r.description||'')).toLowerCase().includes(q));
+        render(list);
+      }
+
+      async function init(){
+        try{
+          status.textContent = 'Loading repositories…';
+          const res = await fetch(`https://api.github.com/users/${username}/repos?per_page=100&sort=updated`);
+          const data = await res.json();
+          let repos = Array.isArray(data) ? data : [];
+          repos = repos.filter(r=>!r.fork);
+          repos.sort((a,b)=> (b.stargazers_count - a.stargazers_count) || (new Date(b.updated_at) - new Date(a.updated_at)) );
+          window.__repos = repos;
+          populateLanguages(repos);
+          render(repos);
+          status.textContent = `${repos.length} repositories`; 
+        }catch(e){
+          status.textContent = 'Failed to load repositories.';
+        }
+      }
+
+      search?.addEventListener('input', applyFilters);
+      langSelect?.addEventListener('change', applyFilters);
+      init();
+    })();
   </script>
 </body>
 </html>
-
