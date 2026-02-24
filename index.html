@@ -1,314 +1,605 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Arrosan Rajalingam — PhD Researcher in Meiotic Chromosome Biology | University of Aberdeen</title>
-  <meta name="description" content="PhD researcher in the Murakami Lab (University of Aberdeen) investigating meiosis-specific cohesin–chromosome-axis protein interactions that regulate recombination initiation, using calibrated ChIP-seq and quantitative analysis pipelines." />
-  <meta property="og:title" content="Arrosan Rajalingam" />
-  <meta property="og:description" content="PhD researcher at the University of Aberdeen studying meiotic recombination initiation, cohesin–axis protein interactions, and calibrated ChIP-seq analysis." />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="/assets/og-image.png" />
-  <link rel="icon" href="/assets/favicon.png" />
-  <style>
-    :root{
-      --bg:#0b0c0f;--card:#11131a;--text:#e8eaed;--muted:#a3acb9;--brand:#6ec1e4;--accent:#7ee787;--link:#8ab4f8;--shadow:0 10px 30px rgba(0,0,0,.35);--radius:16px;
-      /* fluid type scales */
-      --fs-body: clamp(14px, 1.6vw, 16px);
-      --fs-h1: clamp(1.6rem, 4vw, 2.8rem);
-      --fs-h2: clamp(1.1rem, 2.2vw, 1.5rem);
-      --fs-small: clamp(.85rem, 1.6vw, .95rem);
-    }
-    *{box-sizing:border-box}
-    html,body{margin:0;padding:0;background:var(--bg,#0b0c0f);color:var(--text,#e8eaed);font:var(--fs-body)/1.6 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,"Helvetica Neue",Arial,"Apple Color Emoji","Segoe UI Emoji";min-height:100%;}
-    a{color:var(--link);text-decoration:none}
-    a:hover{text-decoration:underline}
-    .container{max-width:1080px;margin:0 auto;padding:28px}
-    header{position:sticky;top:0;backdrop-filter:saturate(160%) blur(8px);background:rgba(11,12,15,.6);border-bottom:1px solid rgba(255,255,255,.06);z-index:50}
-    nav{display:flex;align-items:center;gap:16px;justify-content:space-between}
-    .nav-left{display:flex;align-items:center;gap:18px}
-    .brand{font-weight:700;letter-spacing:.2px}
-    .pill{display:inline-block;padding:6px 12px;border:1px solid rgba(255,255,255,.08);border-radius:999px;background:rgba(255,255,255,.03)}
-    .links a{margin-left:12px}
-    .btn{display:inline-flex;align-items:center;gap:10px;padding:12px 16px;border-radius:12px;border:1px solid rgba(255,255,255,.09);background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.02));box-shadow:var(--shadow);color:var(--text);white-space:nowrap}
-    .btn:hover{transform:translateY(-1px)}
-    .hero{display:grid;grid-template-columns:1.2fr .8fr;gap:28px;padding:64px 0}
-    .card{background:var(--card);border:1px solid rgba(255,255,255,.06);border-radius:var(--radius);box-shadow:var(--shadow)}
-    .card .inner{padding:26px}
-    .kicker{color:var(--brand);font-weight:600;letter-spacing:.28px;text-transform:uppercase;font-size:var(--fs-small)}
-    h1{font-size:var(--fs-h1);line-height:1.15;margin:.2em 0 .4em}
-    h2{font-size:var(--fs-h2);margin:0 0 10px}
-    p{margin:0 0 12px;color:#d6d9df}
-    ul{margin:6px 0 0 18px}
-    .grid{display:grid;gap:20px}
-    .grid.cols-3{grid-template-columns:repeat(3,1fr)}
-    .grid.cols-2{grid-template-columns:repeat(2,1fr)}
-    .tag{display:inline-block;margin:3px 6px 0 0;padding:6px 10px;border-radius:999px;background:rgba(126,231,135,.1);border:1px solid rgba(126,231,135,.3);color:var(--accent);font-size:.9rem}
-    .muted{color:var(--muted)}
-    .section{padding:26px}
-    .footer{padding:30px 0;color:var(--muted);font-size:.95rem;border-top:1px solid rgba(255,255,255,.06);margin-top:28px}
-    .avatar{width:100%;max-width:360px;aspect-ratio:1/1;border-radius:18px;object-fit:cover;border:1px solid rgba(255,255,255,.08)}
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Arrosan Rajalingam — PhD Researcher in Meiotic Chromosome Biology | University of Aberdeen</title>
+    <meta name="description"
+        content="PhD researcher in the Murakami Lab (University of Aberdeen) investigating meiosis-specific cohesin–chromosome-axis protein interactions that regulate recombination initiation, using calibrated ChIP-seq and quantitative analysis pipelines." />
+    <meta property="og:title" content="Arrosan Rajalingam" />
+    <meta property="og:description"
+        content="PhD researcher at the University of Aberdeen studying meiotic recombination initiation, cohesin–axis protein interactions, and calibrated ChIP-seq analysis." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="/assets/og-image.png" />
+    <link rel="icon" href="/assets/favicon.png" />
+    <style>
+        :root {
+            --bg: #0b0c0f;
+            --card: #11131a;
+            --text: #e8eaed;
+            --muted: #a3acb9;
+            --brand: #6ec1e4;
+            --accent: #7ee787;
+            --link: #8ab4f8;
+            --shadow: 0 10px 30px rgba(0, 0, 0, .35);
+            --radius: 16px;
+            /* fluid type scales */
+            --fs-body: clamp(14px, 1.6vw, 16px);
+            --fs-h1: clamp(1.6rem, 4vw, 2.8rem);
+            --fs-h2: clamp(1.1rem, 2.2vw, 1.5rem);
+            --fs-small: clamp(.85rem, 1.6vw, .95rem);
+        }
 
-    /* ---------- Responsive tuning ---------- */
-    /* Large tablets and below */
-    @media (max-width: 1024px){
-      .container{padding:22px}
-      .hero{grid-template-columns:1fr;gap:22px;padding:42px 0}
-      .links a{margin-left:10px}
-    }
-    /* Phones and small tablets */
-    @media (max-width: 768px){
-      .container{padding:18px}
-      header nav{gap:10px}
-      .pill{display:none}
-      .links{display:none} /* collapse top nav links, rely on in-page sections */
-      .card .inner{padding:20px}
-      .btn{padding:10px 14px}
-      .grid.cols-3{grid-template-columns:1fr}
-      .grid.cols-2{grid-template-columns:1fr}
-      .section{padding:20px}
-      .hero{padding:32px 0}
-      .avatar{max-width:240px;margin:0 auto;display:block}
-      /* project controls wrap nicely */
-      #projects .btn, #projects input, #projects select{width:100%}
-      #repo-search{min-width:0}
-    }
-    /* Very small phones */
-    @media (max-width: 420px){
-      .container{padding:14px}
-      .btn{padding:9px 12px}
-      h1{font-size:clamp(1.4rem, 8vw, 2rem)}
-      .hero{gap:18px}
-    }
+        * {
+            box-sizing: border-box
+        }
 
-    /* Respect reduced-motion */
-    @media (prefers-reduced-motion: reduce){
-      *{scroll-behavior:auto}
-      .btn:hover{transform:none}
-    }
-  </style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            background: var(--bg, #0b0c0f);
+            color: var(--text, #e8eaed);
+            font: var(--fs-body)/1.6 system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji";
+            min-height: 100%;
+        }
+
+        a {
+            color: var(--link);
+            text-decoration: none
+        }
+
+        a:hover {
+            text-decoration: underline
+        }
+
+        .container {
+            max-width: 1080px;
+            margin: 0 auto;
+            padding: 28px
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            backdrop-filter: saturate(160%) blur(8px);
+            -webkit-backdrop-filter: saturate(160%) blur(8px);
+            background: rgba(11, 12, 15, .6);
+            border-bottom: 1px solid rgba(255, 255, 255, .06);
+            z-index: 50
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            justify-content: space-between
+        }
+
+        .nav-left {
+            display: flex;
+            align-items: center;
+            gap: 18px
+        }
+
+        .brand {
+            font-weight: 700;
+            letter-spacing: .2px
+        }
+
+        .pill {
+            display: inline-block;
+            padding: 6px 12px;
+            border: 1px solid rgba(255, 255, 255, .08);
+            border-radius: 999px;
+            background: rgba(255, 255, 255, .03)
+        }
+
+        .links a {
+            margin-left: 12px
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 16px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, .09);
+            background: linear-gradient(180deg, rgba(255, 255, 255, .06), rgba(255, 255, 255, .02));
+            box-shadow: var(--shadow);
+            color: var(--text);
+            white-space: nowrap
+        }
+
+        .btn:hover {
+            transform: translateY(-1px)
+        }
+
+        .hero {
+            display: grid;
+            grid-template-columns: 1.2fr .8fr;
+            gap: 28px;
+            padding: 64px 0
+        }
+
+        .card {
+            background: var(--card);
+            border: 1px solid rgba(255, 255, 255, .06);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow)
+        }
+
+        .card .inner {
+            padding: 26px
+        }
+
+        .kicker {
+            color: var(--brand);
+            font-weight: 600;
+            letter-spacing: .28px;
+            text-transform: uppercase;
+            font-size: var(--fs-small)
+        }
+
+        h1 {
+            font-size: var(--fs-h1);
+            line-height: 1.15;
+            margin: .2em 0 .4em
+        }
+
+        h2 {
+            font-size: var(--fs-h2);
+            margin: 0 0 10px
+        }
+
+        p {
+            margin: 0 0 12px;
+            color: #d6d9df
+        }
+
+        ul {
+            margin: 6px 0 0 18px
+        }
+
+        .grid {
+            display: grid;
+            gap: 20px
+        }
+
+        .grid.cols-3 {
+            grid-template-columns: repeat(3, 1fr)
+        }
+
+        .grid.cols-2 {
+            grid-template-columns: repeat(2, 1fr)
+        }
+
+        .tag {
+            display: inline-block;
+            margin: 3px 6px 0 0;
+            padding: 6px 10px;
+            border-radius: 999px;
+            background: rgba(126, 231, 135, .1);
+            border: 1px solid rgba(126, 231, 135, .3);
+            color: var(--accent);
+            font-size: .9rem
+        }
+
+        .muted {
+            color: var(--muted)
+        }
+
+        .section {
+            padding: 26px
+        }
+
+        .footer {
+            padding: 30px 0;
+            color: var(--muted);
+            font-size: .95rem;
+            border-top: 1px solid rgba(255, 255, 255, .06);
+            margin-top: 28px
+        }
+
+        .avatar {
+            width: 100%;
+            max-width: 360px;
+            aspect-ratio: 1/1;
+            border-radius: 18px;
+            object-fit: cover;
+            border: 1px solid rgba(255, 255, 255, .08)
+        }
+
+        /* ---------- Responsive tuning ---------- */
+        /* Large tablets and below */
+        @media (max-width: 1024px) {
+            .container {
+                padding: 22px
+            }
+
+            .hero {
+                grid-template-columns: 1fr;
+                gap: 22px;
+                padding: 42px 0
+            }
+
+            .links a {
+                margin-left: 10px
+            }
+        }
+
+        /* Phones and small tablets */
+        @media (max-width: 768px) {
+            .container {
+                padding: 18px
+            }
+
+            header nav {
+                gap: 10px
+            }
+
+            .pill {
+                display: none
+            }
+
+            .links {
+                display: none
+            }
+
+            /* collapse top nav links, rely on in-page sections */
+            .card .inner {
+                padding: 20px
+            }
+
+            .btn {
+                padding: 10px 14px
+            }
+
+            .grid.cols-3 {
+                grid-template-columns: 1fr
+            }
+
+            .grid.cols-2 {
+                grid-template-columns: 1fr
+            }
+
+            .section {
+                padding: 20px
+            }
+
+            .hero {
+                padding: 32px 0
+            }
+
+            .avatar {
+                max-width: 240px;
+                margin: 0 auto;
+                display: block
+            }
+
+            /* project controls wrap nicely */
+            #projects .btn,
+            #projects input,
+            #projects select {
+                width: 100%
+            }
+
+            #repo-search {
+                min-width: 0
+            }
+        }
+
+        /* Very small phones */
+        @media (max-width: 420px) {
+            .container {
+                padding: 14px
+            }
+
+            .btn {
+                padding: 9px 12px
+            }
+
+            h1 {
+                font-size: clamp(1.4rem, 8vw, 2rem)
+            }
+
+            .hero {
+                gap: 18px
+            }
+        }
+
+        /* Respect reduced-motion */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                scroll-behavior: auto
+            }
+
+            .btn:hover {
+                transform: none
+            }
+        }
+    </style>
 </head>
+
 <body>
-  <header>
-    <div class="container">
-      <nav>
-        <div class="nav-left">
-          <span class="brand">Arrosan Rajalingam</span>
-          <span class="pill">PhD Researcher • Murakami Lab • University of Aberdeen</span>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="nav-left">
+                    <span class="brand">Arrosan Rajalingam</span>
+                    <span class="pill">PhD Researcher • Murakami Lab • University of Aberdeen</span>
+                </div>
+                <div class="links" aria-label="Section links">
+                    <a href="#about">About</a>
+                    <a href="#research">Research</a>
+                    <a href="#projects">Projects</a>
+                    <a href="#publications">Publications</a>
+                    <a href="#contact">Contact</a>
+                </div>
+            </nav>
         </div>
-        <div class="links" aria-label="Section links">
-          <a href="#about">About</a>
-          <a href="#research">Research</a>
-          <a href="#projects">Projects</a>
-          <a href="#publications">Publications</a>
-          <a href="#contact">Contact</a>
-        </div>
-      </nav>
-    </div>
-  </header>
+    </header>
 
-  <main class="container">
-    <!-- HERO -->
-    <section class="hero">
-      <div class="card">
-        <div class="inner">
-          <div class="kicker">Hello! I'm Arrosan</div>
-          <h1>Defining meiosis-specific cohesin–chromosome-axis interactions that govern recombination initiation.</h1>
-          <p>I am a PhD Researcher in the Murakami Lab (Institute of Medical Sciences, University of Aberdeen), supervised by <a href="https://www.abdn.ac.uk/people/hajime.murakami1" rel="noopener">Dr Hajime Murakami</a> (primary supervisor) and <a href="https://www.abdn.ac.uk/people/a.lorenz" rel="noopener">Dr Alexander Lorenz</a> (co-supervisor). My research focuses on how cohesin and chromosome-axis proteins regulate meiotic DNA double-strand break (DSB) formation and recombination initiation, using calibrated ChIP-seq, molecular genetics, and quantitative analysis workflows in R/Python.</p>
-          <div style="margin-top:18px;display:flex;gap:12px;flex-wrap:wrap">
-            <a class="btn" href="mailto:a.rajalingam.23@abdn.ac.uk">Email me</a>
-            <a class="btn" href="/cv/Arrosan_Rajalingam_CV.pdf">Download CV</a>
-            <a class="btn" href="https://github.com/ArrosanRajalingam" rel="noopener">GitHub</a>
-            <a class="btn" href="https://scholar.google.com/citations?user=ezPEEUIAAAAJ&hl=en" rel="noopener">Google Scholar</a>
-            <a class="btn" href="https://orcid.org/0000-0002-1933-7741" rel="noopener">ORCID</a>
-          </div>
-        </div>
-      </div>
-      <aside>
-        <img class="avatar" src="/Asset/Profile_pic.jpg" alt="Portrait of Arrosan Rajalingam" loading="lazy" />
-      </aside>
-    </section>
+    <main class="container">
+        <!-- HERO -->
+        <section class="hero">
+            <div class="card">
+                <div class="inner">
+                    <div class="kicker">Hello! I'm Arrosan</div>
+                    <h1>Defining meiosis-specific cohesin–chromosome-axis interactions that govern recombination
+                        initiation.</h1>
+                    <p>I am a PhD Researcher in the Murakami Lab (Institute of Medical Sciences, University of
+                        Aberdeen), supervised by <a href="https://www.abdn.ac.uk/people/hajime.murakami1"
+                            rel="noopener">Dr Hajime Murakami</a> (primary supervisor) and <a
+                            href="https://www.abdn.ac.uk/people/a.lorenz" rel="noopener">Dr Alexander Lorenz</a>
+                        (co-supervisor). My research focuses on how cohesin and chromosome-axis proteins regulate
+                        meiotic DNA double-strand break (DSB) formation and recombination initiation, using calibrated
+                        ChIP-seq, molecular genetics, and quantitative analysis workflows in R/Python.</p>
+                    <div style="margin-top:18px;display:flex;gap:12px;flex-wrap:wrap">
+                        <a class="btn" href="mailto:a.rajalingam.23@abdn.ac.uk">Email me</a>
+                        <a class="btn" href="/cv/Arrosan_Rajalingam_CV.pdf">Download CV</a>
+                        <a class="btn" href="https://github.com/ArrosanRajalingam" rel="noopener">GitHub</a>
+                        <a class="btn" href="https://scholar.google.com/citations?user=ezPEEUIAAAAJ&hl=en"
+                            rel="noopener">Google Scholar</a>
+                        <a class="btn" href="https://orcid.org/0000-0002-1933-7741" rel="noopener">ORCID</a>
+                    </div>
+                </div>
+            </div>
+            <aside>
+                <img class="avatar" src="/Asset/Profile_pic.jpg" alt="Portrait of Arrosan Rajalingam" loading="lazy" />
+            </aside>
+        </section>
 
-    <!-- ABOUT -->
-    <section id="about" class="card section">
-      <h2>About</h2>
-      <p>I am a PhD researcher in the Murakami Lab at the Institute of Medical Sciences, University of Aberdeen. My work investigates the molecular mechanisms that initiate meiotic recombination, with particular emphasis on the interplay between meiosis-specific cohesin and chromosome-axis proteins.</p>
+        <!-- ABOUT -->
+        <section id="about" class="card section">
+            <h2>About</h2>
+            <p>I am a PhD researcher in the Murakami Lab at the Institute of Medical Sciences, University of Aberdeen.
+                My work investigates the molecular mechanisms that initiate meiotic recombination, with particular
+                emphasis on the interplay between meiosis-specific cohesin and chromosome-axis proteins.</p>
 
-      <p>My PhD project examines how protein-protein interactions along meiotic chromosomes influence programmed DNA double-strand break (DSB) formation and the recombination landscape. I combine experimental genetics and biochemistry with calibrated ChIP-seq and quantitative data analysis to link chromosomal protein binding patterns with meiotic outcomes.</p>
+            <p>My PhD project examines how protein-protein interactions along meiotic chromosomes influence programmed
+                DNA double-strand break (DSB) formation and the recombination landscape. I combine experimental genetics
+                and biochemistry with calibrated ChIP-seq and quantitative data analysis to link chromosomal protein
+                binding patterns with meiotic outcomes.</p>
 
-      <p><strong>Thesis topic:</strong> <em>Meiosis-Specific Interaction Between Cohesin and Chromosome Axis Proteins Regulates Recombination Initiation</em><br />
-      <strong>Primary Supervisor (PhD):</strong> <a href="https://www.abdn.ac.uk/people/hajime.murakami1" rel="noopener">Dr Hajime Murakami</a> (Advanced Research Fellow, University of Aberdeen; meiosis and meiotic recombination initiation / DSB regulation) &nbsp;|&nbsp;
-      <strong>Co-supervisor:</strong> <a href="https://www.abdn.ac.uk/people/a.lorenz" rel="noopener">Dr Alexander Lorenz</a> (Senior Lecturer, University of Aberdeen; fungal genetics and molecular cell biology)</p>
+            <p><strong>Thesis topic:</strong> <em>Meiosis-Specific Interaction Between Cohesin and Chromosome Axis
+                    Proteins Regulates Recombination Initiation</em><br />
+                <strong>Primary Supervisor (PhD):</strong> <a href="https://www.abdn.ac.uk/people/hajime.murakami1"
+                    rel="noopener">Dr Hajime Murakami</a> (Advanced Research Fellow, University of Aberdeen; meiosis and
+                meiotic recombination initiation / DSB regulation) &nbsp;|&nbsp;
+                <strong>Co-supervisor:</strong> <a href="https://www.abdn.ac.uk/people/a.lorenz" rel="noopener">Dr
+                    Alexander Lorenz</a> (Senior Lecturer, University of Aberdeen; fungal genetics and molecular cell
+                biology)
+            </p>
 
-      <div style="margin-top:10px">
-        <span class="tag">Meiosis</span>
-        <span class="tag">Cohesin / Axis Proteins</span>
-        <span class="tag">Calibrated ChIP-seq</span>
-        <span class="tag">DSB Analysis</span>
-        <span class="tag">Molecular Genetics</span>
-        <span class="tag">R & Python</span>
-        <span class="tag">Linux</span>
-      </div>
-    </section>
+            <div style="margin-top:10px">
+                <span class="tag">Meiosis</span>
+                <span class="tag">Cohesin / Axis Proteins</span>
+                <span class="tag">Calibrated ChIP-seq</span>
+                <span class="tag">DSB Analysis</span>
+                <span class="tag">Molecular Genetics</span>
+                <span class="tag">R & Python</span>
+                <span class="tag">Linux</span>
+            </div>
+        </section>
 
-    <!-- TEACHING / SUPERVISION -->
-    <section id="teaching" class="card section" style="margin-top:22px">
-      <h2>Teaching & Supervision</h2>
+        <!-- TEACHING / SUPERVISION -->
+        <section id="teaching" class="card section" style="margin-top:22px">
+            <h2>Teaching & Supervision</h2>
 
-      <div class="grid cols-2" style="margin-top:10px">
-        <div class="card section">
-          <h3 style="margin-top:0">Demonstration / Teaching</h3>
-          <p><strong>Demonstrator, GN3502: Genetics Practical (2026)</strong> — University of Aberdeen</p>
-          <p class="muted" style="margin-bottom:0">Course Coordinator: Dr Alexander Lorenz</p>
-        </div>
+            <div class="grid cols-2" style="margin-top:10px">
+                <div class="card section">
+                    <h3 style="margin-top:0">Demonstration / Teaching</h3>
+                    <p><strong>Demonstrator, GN3502: Genetics Practical (2026)</strong> — University of Aberdeen</p>
+                    <p class="muted" style="margin-bottom:0">Course Coordinator: Dr Alexander Lorenz</p>
+                </div>
 
-        <div class="card section">
-          <h3 style="margin-top:0">Student Supervision & Mentoring</h3>
-          <p>Supervision and training support for undergraduate and visiting students in molecular biology/genetics laboratory work, including experimental planning, practical workflows, and research communication.</p>
-          <p class="muted" style="margin-bottom:0">Includes mentoring of undergraduate and visiting students in the Murakami/Lorenz research environment.</p>
-        </div>
-      </div>
+                <div class="card section">
+                    <h3 style="margin-top:0">Student Supervision & Mentoring</h3>
+                    <p>Supervision and training support for undergraduate and visiting students in molecular
+                        biology/genetics laboratory work, including experimental planning, practical workflows, and
+                        research communication.</p>
+                    <p class="muted" style="margin-bottom:0">Includes mentoring of undergraduate and visiting students
+                        in the Murakami/Lorenz research environment.</p>
+                </div>
+            </div>
 
-      <h3 style="margin-top:18px">Supervisory Team</h3>
-      <div class="grid cols-2" style="margin-top:8px">
-        <div class="card section">
-          <h4 style="margin-top:0">Dr Hajime Murakami (Primary PhD Supervisor)</h4>
-          <p>Dr Murakami is my primary PhD supervisor and leads the Murakami Lab at the University of Aberdeen. He is an <strong>Advanced Research Fellow</strong> in the School of Medicine, Medical Sciences and Nutrition. His research focuses on the initiation stage of meiotic recombination, particularly the programmed formation of DNA double-strand breaks (DSBs) and the chromosome-associated mechanisms that regulate robust meiotic recombination.</p>
-          <p style="margin-bottom:0">
-            <a href="https://www.abdn.ac.uk/people/hajime.murakami1" rel="noopener">University profile</a> ·
-            <a href="https://abdn.elsevierpure.com/en/persons/hajime-murakami-2" rel="noopener">Pure profile</a> ·
-            <a href="https://orcid.org/0000-0002-7022-6887" rel="noopener">ORCID</a>
-          </p>
-        </div>
+            <h3 style="margin-top:18px">Supervisory Team</h3>
+            <div class="grid cols-2" style="margin-top:8px">
+                <div class="card section">
+                    <h4 style="margin-top:0">Dr Hajime Murakami (Primary PhD Supervisor)</h4>
+                    <p>Dr Murakami is my primary PhD supervisor and leads the Murakami Lab at the University of
+                        Aberdeen. He is an <strong>Advanced Research Fellow</strong> in the School of Medicine, Medical
+                        Sciences and Nutrition. His research focuses on the initiation stage of meiotic recombination,
+                        particularly the programmed formation of DNA double-strand breaks (DSBs) and the
+                        chromosome-associated mechanisms that regulate robust meiotic recombination.</p>
+                    <p style="margin-bottom:0">
+                        <a href="https://www.abdn.ac.uk/people/hajime.murakami1" rel="noopener">University profile</a> ·
+                        <a href="https://abdn.elsevierpure.com/en/persons/hajime-murakami-2" rel="noopener">Pure
+                            profile</a> ·
+                        <a href="https://orcid.org/0000-0002-7022-6887" rel="noopener">ORCID</a>
+                    </p>
+                </div>
 
-        <div class="card section">
-          <h4 style="margin-top:0">Dr Alexander Lorenz (Co-supervisor)</h4>
-          <p>Dr Lorenz is my PhD co-supervisor and a <strong>Senior Lecturer</strong> at the University of Aberdeen. His expertise spans fungal genetics, molecular cell biology, and genetics education, and he also coordinates teaching including the GN3502 Genetics Practical.</p>
-          <p style="margin-bottom:0">
-            <a href="https://www.abdn.ac.uk/people/a.lorenz" rel="noopener">University profile</a> ·
-            <a href="https://abdn.elsevierpure.com/en/persons/alexander-lorenz/" rel="noopener">Pure profile</a> ·
-            <a href="https://orcid.org/0000-0003-1925-3713" rel="noopener">ORCID</a>
-          </p>
-        </div>
-      </div>
-    </section>
+                <div class="card section">
+                    <h4 style="margin-top:0">Dr Alexander Lorenz (Co-supervisor)</h4>
+                    <p>Dr Lorenz is my PhD co-supervisor and a <strong>Senior Lecturer</strong> at the University of
+                        Aberdeen. His expertise spans fungal genetics, molecular cell biology, and genetics education,
+                        and he also coordinates teaching including the GN3502 Genetics Practical.</p>
+                    <p style="margin-bottom:0">
+                        <a href="https://www.abdn.ac.uk/people/a.lorenz" rel="noopener">University profile</a> ·
+                        <a href="https://abdn.elsevierpure.com/en/persons/alexander-lorenz/" rel="noopener">Pure
+                            profile</a> ·
+                        <a href="https://orcid.org/0000-0003-1925-3713" rel="noopener">ORCID</a>
+                    </p>
+                </div>
+            </div>
+        </section>
 
-    <!-- RESEARCH FOCUS -->
-    <section id="research" class="card section" style="margin-top:22px">
-      <h2>Research Focus</h2>
-      <h3 style="margin-top:6px">Molecular mechanisms of meiotic recombination initiation</h3>
+        <!-- RESEARCH FOCUS -->
+        <section id="research" class="card section" style="margin-top:22px">
+            <h2>Research Focus</h2>
+            <h3 style="margin-top:6px">Molecular mechanisms of meiotic recombination initiation</h3>
 
-      <p>My research focuses on how meiosis-specific cohesin and chromosome-axis proteins cooperate to regulate the initiation of meiotic recombination through programmed DNA double-strand break (DSB) formation. I investigate how these factors are recruited, positioned, and stabilised along meiotic chromosomes, and how this organisation influences recombination outcomes.</p>
+            <p>My research focuses on how meiosis-specific cohesin and chromosome-axis proteins cooperate to regulate
+                the initiation of meiotic recombination through programmed DNA double-strand break (DSB) formation. I
+                investigate how these factors are recruited, positioned, and stabilised along meiotic chromosomes, and
+                how this organisation influences recombination outcomes.</p>
 
-      <p>I use a combination of yeast molecular genetics, chromosome immunostaining, western blotting, co-immunoprecipitation, BMOE crosslinking, and calibrated ChIP-seq to interrogate the mechanistic basis of cohesin–axis protein function. This experimental work is supported by reproducible computational workflows for quantitative analysis and visualisation in R and Python.</p>
+            <p>I use a combination of yeast molecular genetics, chromosome immunostaining, western blotting,
+                co-immunoprecipitation, BMOE crosslinking, and calibrated ChIP-seq to interrogate the mechanistic basis
+                of cohesin–axis protein function. This experimental work is supported by reproducible computational
+                workflows for quantitative analysis and visualisation in R and Python.</p>
 
-      <p>More broadly, this work contributes to understanding how failures in meiotic chromosome regulation can lead to chromosome segregation errors and genome instability.</p>
+            <p>More broadly, this work contributes to understanding how failures in meiotic chromosome regulation can
+                lead to chromosome segregation errors and genome instability.</p>
 
-      <div class="grid cols-3" style="margin-top:14px">
-        <div class="card section">
-          <h4>Mechanistic Chromosome Biology</h4>
-          <p>Dissecting how cohesin and chromosome-axis proteins interact to promote and regulate meiotic recombination initiation.</p>
-        </div>
-        <div class="card section">
-          <h4>Calibrated Genomic Mapping</h4>
-          <p>Using calibrated ChIP-seq and quantitative assays to map protein occupancy and relate it to meiotic DSB landscapes.</p>
-        </div>
-        <div class="card section">
-          <h4>Reproducible Quantitative Workflows</h4>
-          <p>Developing analysis pipelines in R/Python/Linux for robust processing, visualisation, and interpretation of experimental datasets.</p>
-        </div>
-      </div>
-    </section>
+            <div class="grid cols-3" style="margin-top:14px">
+                <div class="card section">
+                    <h4>Mechanistic Chromosome Biology</h4>
+                    <p>Dissecting how cohesin and chromosome-axis proteins interact to promote and regulate meiotic
+                        recombination initiation.</p>
+                </div>
+                <div class="card section">
+                    <h4>Calibrated Genomic Mapping</h4>
+                    <p>Using calibrated ChIP-seq and quantitative assays to map protein occupancy and relate it to
+                        meiotic DSB landscapes.</p>
+                </div>
+                <div class="card section">
+                    <h4>Reproducible Quantitative Workflows</h4>
+                    <p>Developing analysis pipelines in R/Python/Linux for robust processing, visualisation, and
+                        interpretation of experimental datasets.</p>
+                </div>
+            </div>
+        </section>
 
-    <!-- PROJECTS -->
-    <section id="projects" class="card section" style="margin-top:22px">
-      <h2>Projects</h2>
-      <p class="muted">This list pulls automatically from my public GitHub repositories, including analysis scripts and reproducible workflows for molecular biology and genomics data.</p>
+        <!-- PROJECTS -->
+        <section id="projects" class="card section" style="margin-top:22px">
+            <h2>Projects</h2>
+            <p class="muted">This list pulls automatically from my public GitHub repositories, including analysis
+                scripts and reproducible workflows for molecular biology and genomics data.</p>
 
-      <div style="margin:12px 0;display:flex;gap:10px;flex-wrap:wrap">
-        <input id="repo-search" type="search" placeholder="Search repositories..." aria-label="Search repositories" style="flex:1;min-width:220px;padding:10px 12px;border-radius:10px;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.04);color:var(--text)" />
-        <select id="repo-language" aria-label="Filter by language" style="padding:10px 12px;border-radius:10px;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.04);color:var(--text)">
-          <option value="">All languages</option>
-        </select>
-      </div>
+            <div style="margin:12px 0;display:flex;gap:10px;flex-wrap:wrap">
+                <input id="repo-search" type="search" placeholder="Search repositories..."
+                    aria-label="Search repositories"
+                    style="flex:1;min-width:220px;padding:10px 12px;border-radius:10px;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.04);color:var(--text)" />
+                <select id="repo-language" aria-label="Filter by language"
+                    style="padding:10px 12px;border-radius:10px;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.04);color:var(--text)">
+                    <option value="">All languages</option>
+                </select>
+            </div>
 
-      <div id="repo-grid" class="grid cols-2" style="margin-top:10px"></div>
+            <div id="repo-grid" class="grid cols-2" style="margin-top:10px"></div>
 
-      <div id="repo-status" class="muted" style="margin-top:10px"></div>
-    </section>
+            <div id="repo-status" class="muted" style="margin-top:10px"></div>
+        </section>
 
-    <!-- PUBLICATIONS -->
-    <section id="publications" class="card section" style="margin-top:22px">
-      <h2>Publications (selected)</h2>
-      <ul>
-        <li>
-          <strong>Rasalingam G, Rajalingam A, Chandradasa M, Nath M.</strong>
-          Assessment of mental health problems among adolescents in Sri Lanka: Findings from the cross-sectional Global School-based Health Survey.
-          <em>Health Science Reports</em> (2022) e886.
-          <a href="https://doi.org/10.1002/hsr2.886" rel="noopener">DOI: 10.1002/hsr2.886</a>
-        </li>
-        <li>
-          <strong>Rasalingam G, Rajalingam A.</strong>
-          Parental Engagement and Adolescents Mental Health Wellbeing: Cross-Sectional Study from Sri Lanka.
-          <em>Public Health Review: International Journal of Public Health Research</em> (2021) 8(4):45–52.
-          <a href="https://doi.org/10.17511/ijphr.2021.i04.01" rel="noopener">DOI: 10.17511/ijphr.2021.i04.01</a>
-        </li>
-      </ul>
+        <!-- PUBLICATIONS -->
+        <section id="publications" class="card section" style="margin-top:22px">
+            <h2>Publications (selected)</h2>
+            <ul>
+                <li>
+                    <strong>Rasalingam G, Rajalingam A, Chandradasa M, Nath M.</strong>
+                    Assessment of mental health problems among adolescents in Sri Lanka: Findings from the
+                    cross-sectional Global School-based Health Survey.
+                    <em>Health Science Reports</em> (2022) e886.
+                    <a href="https://doi.org/10.1002/hsr2.886" rel="noopener">DOI: 10.1002/hsr2.886</a>
+                </li>
+                <li>
+                    <strong>Rasalingam G, Rajalingam A.</strong>
+                    Parental Engagement and Adolescents Mental Health Wellbeing: Cross-Sectional Study from Sri Lanka.
+                    <em>Public Health Review: International Journal of Public Health Research</em> (2021) 8(4):45–52.
+                    <a href="https://doi.org/10.17511/ijphr.2021.i04.01" rel="noopener">DOI:
+                        10.17511/ijphr.2021.i04.01</a>
+                </li>
+            </ul>
 
-      <h3 style="margin-top:16px">Conference abstracts & presentations (selected)</h3>
-      <ul>
-        <li>Characterisation of <em>Rhizobium</em> sp. in <em>Mimosa pudica</em> L. — Post Graduate Institute of Science International Conference, University of Peradeniya (2016).</li>
-        <li>Protein determination and phytochemical analysis of different edible mushroom varieties — Jaffna University International Research Conference (JUICE-2016).</li>
-        <li>Characterisation of <em>Rhizobium</em> sp. in <em>Clitoria ternatea</em> L. — Peradeniya International Research Sessions / iPURSE (2016).</li>
-      </ul>
+            <h3 style="margin-top:16px">Conference abstracts & presentations (selected)</h3>
+            <ul>
+                <li>Characterisation of <em>Rhizobium</em> sp. in <em>Mimosa pudica</em> L. — Post Graduate Institute of
+                    Science International Conference, University of Peradeniya (2016).</li>
+                <li>Protein determination and phytochemical analysis of different edible mushroom varieties — Jaffna
+                    University International Research Conference (JUICE-2016).</li>
+                <li>Characterisation of <em>Rhizobium</em> sp. in <em>Clitoria ternatea</em> L. — Peradeniya
+                    International Research Sessions / iPURSE (2016).</li>
+            </ul>
 
-      <p class="muted" style="margin-top:10px">For a complete list, see <a href="https://scholar.google.com/citations?user=ezPEEUIAAAAJ&hl=en" rel="noopener">Google Scholar</a>, <a href="https://orcid.org/0000-0002-1933-7741" rel="noopener">ORCID</a>, and my <a href="https://abdn.elsevierpure.com/en/persons/arrosan-rajalingam/" rel="noopener">University of Aberdeen Pure profile</a>.</p>
-    </section>
+            <p class="muted" style="margin-top:10px">For a complete list, see <a
+                    href="https://scholar.google.com/citations?user=ezPEEUIAAAAJ&hl=en" rel="noopener">Google
+                    Scholar</a>, <a href="https://orcid.org/0000-0002-1933-7741" rel="noopener">ORCID</a>, and my <a
+                    href="https://abdn.elsevierpure.com/en/persons/arrosan-rajalingam/" rel="noopener">University of
+                    Aberdeen Pure profile</a>.</p>
+        </section>
 
-    <!-- CONTACT -->
-    <section id="contact" class="card section" style="margin-top:22px">
-      <h2>Contact</h2>
-      <p>Email: <a href="mailto:a.rajalingam.23@abdn.ac.uk">a.rajalingam.23@abdn.ac.uk</a> <span class="muted">(alt: <a href="mailto:arrosan.rajalingam@gmail.com">arrosan.rajalingam@gmail.com</a>)</span></p>
-      <p class="muted">PhD Researcher, Murakami Lab • Institute of Medical Sciences • University of Aberdeen</p>
-      <div style="margin-top:6px;display:flex;flex-wrap:wrap;gap:10px">
-        <a class="btn" href="https://github.com/ArrosanRajalingam" rel="noopener">GitHub</a>
-        <a class="btn" href="https://scholar.google.com/citations?user=ezPEEUIAAAAJ&hl=en" rel="noopener">Google Scholar</a>
-        <a class="btn" href="https://orcid.org/0000-0002-1933-7741" rel="noopener">ORCID</a>
-        <a class="btn" href="https://www.linkedin.com/in/arrosan06" rel="noopener">LinkedIn</a>
-        <a class="btn" href="https://x.com/R_Arrosan" rel="noopener">X / Twitter</a>
-        <a class="btn" href="https://www.abdn.ac.uk/people/a.rajalingam.23" rel="noopener">Aberdeen Profile</a>
-        <a class="btn" href="https://abdn.elsevierpure.com/en/persons/arrosan-rajalingam/" rel="noopener">Pure Profile</a>
-      </div>
-    </section>
+        <!-- CONTACT -->
+        <section id="contact" class="card section" style="margin-top:22px">
+            <h2>Contact</h2>
+            <p>Email: <a href="mailto:a.rajalingam.23@abdn.ac.uk">a.rajalingam.23@abdn.ac.uk</a> <span
+                    class="muted">(alt: <a
+                        href="mailto:arrosan.rajalingam@gmail.com">arrosan.rajalingam@gmail.com</a>)</span></p>
+            <p class="muted">PhD Researcher, Murakami Lab • Institute of Medical Sciences • University of Aberdeen</p>
+            <div style="margin-top:6px;display:flex;flex-wrap:wrap;gap:10px">
+                <a class="btn" href="https://github.com/ArrosanRajalingam" rel="noopener">GitHub</a>
+                <a class="btn" href="https://scholar.google.com/citations?user=ezPEEUIAAAAJ&hl=en" rel="noopener">Google
+                    Scholar</a>
+                <a class="btn" href="https://orcid.org/0000-0002-1933-7741" rel="noopener">ORCID</a>
+                <a class="btn" href="https://www.linkedin.com/in/arrosan06" rel="noopener">LinkedIn</a>
+                <a class="btn" href="https://x.com/R_Arrosan" rel="noopener">X / Twitter</a>
+                <a class="btn" href="https://www.abdn.ac.uk/people/a.rajalingam.23" rel="noopener">Aberdeen Profile</a>
+                <a class="btn" href="https://abdn.elsevierpure.com/en/persons/arrosan-rajalingam/" rel="noopener">Pure
+                    Profile</a>
+            </div>
+        </section>
 
-    <footer class="footer container" role="contentinfo">
-      <div class="container" style="padding:0">
-        © <span id="y"></span> Arrosan Rajalingam • Academic portfolio • Built with static HTML/CSS • Hosted on GitHub Pages
-      </div>
-    </footer>
-  </main>
+        <footer class="footer" role="contentinfo">
+            © <span id="y"></span> Arrosan Rajalingam • Academic portfolio • Built with static HTML/CSS • Hosted on
+            GitHub Pages
+        </footer>
+    </main>
 
-  <script>
-    document.getElementById('y').textContent = new Date().getFullYear();
+    <script>
+        document.getElementById('y').textContent = new Date().getFullYear();
 
-    // --- Dynamic GitHub repo grid ---
-    (function(){
-      const username = 'ArrosanRajalingam';
-      const grid = document.getElementById('repo-grid');
-      const status = document.getElementById('repo-status');
-      const search = document.getElementById('repo-search');
-      const langSelect = document.getElementById('repo-language');
-      if(!grid) return;
+        // --- Dynamic GitHub repo grid ---
+        (function () {
+            const username = 'ArrosanRajalingam';
+            const grid = document.getElementById('repo-grid');
+            const status = document.getElementById('repo-status');
+            const search = document.getElementById('repo-search');
+            const langSelect = document.getElementById('repo-language');
+            if (!grid) return;
 
-      const fmtDate = (s)=> new Date(s).toLocaleDateString(undefined, {year:'numeric', month:'short', day:'2-digit'});
+            const fmtDate = (s) => new Date(s).toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: '2-digit' });
 
-      function render(list){
-        grid.innerHTML = '';
-        if(!list.length){ grid.innerHTML = '<p class="muted">No repositories match your filters.</p>'; return; }
-        list.forEach(r => {
-          const a = document.createElement('article');
-          a.className = 'card';
-          a.innerHTML = `
+            function render(list) {
+                grid.innerHTML = '';
+                if (!list.length) { grid.innerHTML = '<p class="muted">No repositories match your filters.</p>'; return; }
+                list.forEach(r => {
+                    const a = document.createElement('article');
+                    a.className = 'card';
+                    a.innerHTML = `
             <div class="inner">
               <h3 style="margin:0 0 6px"><a href="${r.html_url}" rel="noopener">${r.name}</a></h3>
               <p class="muted" style="min-height:2.6em">${r.description ? r.description : ''}</p>
@@ -318,49 +609,50 @@
                 <span>Updated ${fmtDate(r.updated_at)}</span>
               </div>
             </div>`;
-          grid.appendChild(a);
-        });
-      }
+                    grid.appendChild(a);
+                });
+            }
 
-      function populateLanguages(repos){
-        const langs = Array.from(new Set(repos.map(r=>r.language).filter(Boolean))).sort();
-        langs.forEach(l=>{
-          const opt = document.createElement('option');
-          opt.value = l; opt.textContent = l; langSelect.appendChild(opt);
-        });
-      }
+            function populateLanguages(repos) {
+                const langs = Array.from(new Set(repos.map(r => r.language).filter(Boolean))).sort();
+                langs.forEach(l => {
+                    const opt = document.createElement('option');
+                    opt.value = l; opt.textContent = l; langSelect.appendChild(opt);
+                });
+            }
 
-      function applyFilters(){
-        const q = (search?.value || '').toLowerCase();
-        const L = (langSelect?.value || '');
-        let list = window.__repos || [];
-        if(L) list = list.filter(r=>r.language === L);
-        if(q) list = list.filter(r => (r.name+" "+(r.description||'')).toLowerCase().includes(q));
-        render(list);
-      }
+            function applyFilters() {
+                const q = (search?.value || '').toLowerCase();
+                const L = (langSelect?.value || '');
+                let list = window.__repos || [];
+                if (L) list = list.filter(r => r.language === L);
+                if (q) list = list.filter(r => (r.name + " " + (r.description || '')).toLowerCase().includes(q));
+                render(list);
+            }
 
-      async function init(){
-        try{
-          status.textContent = 'Loading repositories…';
-          const res = await fetch(`https://api.github.com/users/${username}/repos?per_page=100&sort=updated`);
-          if(!res.ok){ throw new Error('GitHub API error: '+res.status); }
-          const data = await res.json();
-          let repos = Array.isArray(data) ? data : [];
-          repos = repos.filter(r=>!r.fork);
-          repos.sort((a,b)=> (b.stargazers_count - a.stargazers_count) || (new Date(b.updated_at) - new Date(a.updated_at)) );
-          window.__repos = repos;
-          populateLanguages(repos);
-          render(repos);
-          status.textContent = `${repos.length} repositories`;
-        }catch(e){
-          status.textContent = 'Failed to load repositories.';
-        }
-      }
+            async function init() {
+                try {
+                    status.textContent = 'Loading repositories…';
+                    const res = await fetch(`https://api.github.com/users/${username}/repos?per_page=100&sort=updated`);
+                    if (!res.ok) { throw new Error('GitHub API error: ' + res.status); }
+                    const data = await res.json();
+                    let repos = Array.isArray(data) ? data : [];
+                    repos = repos.filter(r => !r.fork);
+                    repos.sort((a, b) => (b.stargazers_count - a.stargazers_count) || (new Date(b.updated_at) - new Date(a.updated_at)));
+                    window.__repos = repos;
+                    populateLanguages(repos);
+                    render(repos);
+                    status.textContent = `${repos.length} repositories`;
+                } catch (e) {
+                    status.textContent = 'Failed to load repositories.';
+                }
+            }
 
-      search?.addEventListener('input', applyFilters);
-      langSelect?.addEventListener('change', applyFilters);
-      init();
-    })();
-  </script>
+            search?.addEventListener('input', applyFilters);
+            langSelect?.addEventListener('change', applyFilters);
+            init();
+        })();
+    </script>
 </body>
+
 </html>
