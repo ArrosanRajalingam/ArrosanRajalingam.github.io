@@ -152,7 +152,7 @@
 
         .pill {
             display: inline-block;
-            
+
             padding: 4px 14px;
             border: 1px solid var(--card-border);
             border-radius: 999px;
@@ -176,7 +176,7 @@
             background: var(--btn-bg);
             color: var(--text-main);
             font-weight: 500;
-            
+
             transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
             backdrop-filter: blur(4px);
         }
@@ -243,6 +243,7 @@
         p {
             margin: 0 0 16px;
             color: var(--text-muted);
+            text-align: justify;
         }
 
         ul {
@@ -448,32 +449,33 @@
         /* Prevent header links from wrapping */
         header nav {
             flex-wrap: nowrap;
-            
-            
-            
-            
+
+
+
+
         }
 
 
 
         .links {
             display: flex;
-            
+
             padding-right: 12px;
             /* ensure last item doesn't cut off */
         }
 
         .nav-left {
-            
+
             flex-shrink: 0;
         }
-    
-        
+
+
         /* Dropdown Menu */
         .dropdown {
             position: relative;
             display: inline-block;
         }
+
         .dropdown-content {
             display: none;
             position: absolute;
@@ -492,12 +494,14 @@
             transform: translateY(-10px);
             transition: opacity 0.2s ease, transform 0.2s ease;
         }
+
         .dropdown:hover .dropdown-content,
         .dropdown:focus-within .dropdown-content {
             display: block;
             opacity: 1;
             transform: translateY(0);
         }
+
         .dropdown-content a {
             color: var(--text-main) !important;
             padding: 10px 20px;
@@ -508,16 +512,19 @@
             transition: background 0.2s;
             font-size: 0.95rem;
         }
+
         .light-mode .dropdown-content a {
             border-bottom: 1px solid rgba(0, 0, 0, 0.05);
         }
+
         .dropdown-content a:last-child {
             border-bottom: none;
         }
+
         .dropdown-content a:hover {
             background-color: var(--btn-hover-bg);
         }
-        
+
         /* Adjust .links container */
         .links {
             display: flex;
@@ -551,9 +558,13 @@
             --tag-hover-border: rgba(5, 150, 105, 0.3);
         }
 
-        body.light-mode::before { background: #bae6fd; }
-        body.light-mode::after { background: #e0e7ff; }
+        body.light-mode::before {
+            background: #bae6fd;
+        }
 
+        body.light-mode::after {
+            background: #e0e7ff;
+        }
     </style>
 </head>
 
@@ -569,7 +580,8 @@
                 </div>
                 <div class="links" aria-label="Section links">
                     <div class="dropdown">
-                        <button class="btn">Jump to Section <i class="fa-solid fa-chevron-down" style="font-size: 0.8rem; margin-left: 4px;"></i></button>
+                        <button class="btn">Jump to Section <i class="fa-solid fa-chevron-down"
+                                style="font-size: 0.8rem; margin-left: 4px;"></i></button>
                         <div class="dropdown-content">
                             <a href="#about">About</a>
                             <a href="#research">Research Focus</a>
@@ -582,7 +594,8 @@
                             <a href="#contact">Contact</a>
                         </div>
                     </div>
-                    <button class="btn icon-btn" id="theme-toggle" aria-label="Toggle Light/Dark Mode" style="padding: 6px 10px; border-radius: 50%;">
+                    <button class="btn icon-btn" id="theme-toggle" aria-label="Toggle Light/Dark Mode"
+                        style="padding: 6px 10px; border-radius: 50%;">
                         <i class="fa-solid fa-sun" id="theme-icon"></i>
                     </button>
                 </div>
@@ -623,8 +636,26 @@
                     </div>
                 </div>
             </div>
-            <aside>
+            <aside
+                style="display: flex; flex-direction: column; gap: 24px; max-width: 380px; margin: 0 auto; width: 100%;">
                 <img class="avatar" src="/Asset/Profile_pic.jpg" alt="Portrait of Arrosan Rajalingam" loading="lazy" />
+                <div class="card" style="padding: 20px;">
+                    <h3 style="margin-top: 0; margin-bottom: 12px; font-size: 1.1rem; color: #fff;">Contents</h3>
+                    <div style="display: flex; flex-direction: column; gap: 8px;">
+                        <a href="#about" style="color: var(--text-main); transition: color 0.2s;">About</a>
+                        <a href="#research" style="color: var(--text-main); transition: color 0.2s;">Research Focus</a>
+                        <a href="#supervisors" style="color: var(--text-main); transition: color 0.2s;">Supervisory
+                            Team</a>
+                        <a href="#teaching" style="color: var(--text-main); transition: color 0.2s;">Teaching</a>
+                        <a href="#projects" style="color: var(--text-main); transition: color 0.2s;">Projects</a>
+                        <a href="#publications"
+                            style="color: var(--text-main); transition: color 0.2s;">Publications</a>
+                        <a href="#achievements"
+                            style="color: var(--text-main); transition: color 0.2s;">Achievements</a>
+                        <a href="#memberships" style="color: var(--text-main); transition: color 0.2s;">Memberships</a>
+                        <a href="#contact" style="color: var(--text-main); transition: color 0.2s;">Contact</a>
+                    </div>
+                </div>
             </aside>
         </section>
 
@@ -858,9 +889,10 @@
         <section id="contact" class="card section" style="margin-top:22px">
             <h2>Contact</h2>
             <p>Email: <a href="mailto:a.rajalingam.23@abdn.ac.uk">a.rajalingam.23@abdn.ac.uk</a> <span
-                    class="muted">(alt: <a href="mailto:arrosan06@gmail.com">arrosan.rajalingam@gmail.com</a>)</span>
+                    class="muted">(alt: <a href="mailto:arrosan06@gmail.com">arrosan06@gmail.com</a>)</span>
             </p>
-            <p class="muted">PhD Researcher, Murakami Lab • Institute of Medical Sciences • University of Aberdeen</p>
+            <p class="muted">Murakami Lab (2.06) • Chromosome and Cellular Dynamics Section, Institute of Medical
+                Sciences • Foresterhill Campus, University of Aberdeen AB25 2ZD</p>
             <div style="margin-top:12px;display:flex;flex-wrap:wrap;gap:12px">
                 <a class="btn icon-btn" href="mailto:a.rajalingam.23@abdn.ac.uk" title="Email me"><i
                         class="fa-solid fa-envelope"></i></a>
@@ -993,15 +1025,42 @@
         // Light/Dark mode toggle
         const themeToggle = document.getElementById('theme-toggle');
         const themeIcon = document.getElementById('theme-icon');
-        
+
+        let userHasToggled = false;
+
+        const setLightMode = () => {
+            document.body.classList.add('light-mode');
+            themeIcon.classList.replace('fa-sun', 'fa-moon');
+        };
+
+        const setDarkMode = () => {
+            document.body.classList.remove('light-mode');
+            themeIcon.classList.replace('fa-moon', 'fa-sun');
+        };
+
         // Check for saved theme preference in localStorage
         const savedTheme = localStorage.getItem('theme');
         if (savedTheme === 'light') {
-            document.body.classList.add('light-mode');
-            themeIcon.classList.replace('fa-sun', 'fa-moon');
+            setLightMode();
+            userHasToggled = true;
+        } else if (savedTheme === 'dark') {
+            setDarkMode();
+            userHasToggled = true;
         }
 
+        // Auto-switch based on scroll if the user hasn't explicitly set a preference
+        window.addEventListener('scroll', () => {
+            if (!userHasToggled) {
+                if (window.scrollY > 80) {
+                    setLightMode();
+                } else {
+                    setDarkMode();
+                }
+            }
+        });
+
         themeToggle?.addEventListener('click', () => {
+            userHasToggled = true;
             document.body.classList.toggle('light-mode');
             if (document.body.classList.contains('light-mode')) {
                 localStorage.setItem('theme', 'light');
