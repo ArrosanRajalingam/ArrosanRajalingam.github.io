@@ -1038,17 +1038,10 @@
             themeIcon.classList.replace('fa-moon', 'fa-sun');
         };
 
-        // Check for saved theme preference in localStorage
-        const savedTheme = localStorage.getItem('theme');
-        if (savedTheme === 'light') {
-            setLightMode();
-            userHasToggled = true;
-        } else if (savedTheme === 'dark') {
-            setDarkMode();
-            userHasToggled = true;
-        }
+        // Starts dark by default
+        setDarkMode();
 
-        // Auto-switch based on scroll if the user hasn't explicitly set a preference
+        // Auto-switch based on scroll
         window.addEventListener('scroll', () => {
             if (!userHasToggled) {
                 if (window.scrollY > 80) {
@@ -1060,13 +1053,11 @@
         });
 
         themeToggle?.addEventListener('click', () => {
-            userHasToggled = true;
+            userHasToggled = true; // Stop auto-switching if user explicitly clicks
             document.body.classList.toggle('light-mode');
             if (document.body.classList.contains('light-mode')) {
-                localStorage.setItem('theme', 'light');
                 themeIcon.classList.replace('fa-sun', 'fa-moon');
             } else {
-                localStorage.setItem('theme', 'dark');
                 themeIcon.classList.replace('fa-moon', 'fa-sun');
             }
         });
