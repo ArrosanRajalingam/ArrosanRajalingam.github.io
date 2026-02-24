@@ -4,8 +4,6 @@ An elegant, responsive, and lightweight academic portfolio built to showcase res
 
 > **Live Site:** [arrosanrajalingam.github.io](https://arrosanrajalingam.github.io)
 
-![Portfolio Preview](./Asset/Profile_pic.jpg) <!-- Note: Optional. Can be replaced with a screenshot of the site -->
-
 ## ✨ Features
 
 - **Blazing Fast & Lightweight**: Built entirely with pure HTML, vanilla CSS, and minimal JS. Zero complex build systems, framework dependencies, or bloat.
