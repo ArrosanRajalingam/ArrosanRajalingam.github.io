@@ -13,36 +13,76 @@
     <meta property="og:type" content="website" />
     <meta property="og:image" content="/assets/og-image.png" />
     <link rel="icon" href="/assets/favicon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+
     <style>
         :root {
-            --bg: #0b0c0f;
-            --card: #11131a;
-            --text: #e8eaed;
-            --muted: #a3acb9;
-            --brand: #6ec1e4;
-            --accent: #7ee787;
-            --link: #8ab4f8;
-            --shadow: 0 10px 30px rgba(0, 0, 0, .35);
-            --radius: 16px;
+            --bg: #030712;
+            --card: rgba(20, 24, 32, 0.6);
+            --card-border: rgba(255, 255, 255, 0.08);
+            --text-main: #f3f4f6;
+            --text-muted: #9ca3af;
+            --brand-gradient: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
+            --accent: #34d399;
+            --link: #60a5fa;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            --shadow-glow: 0 0 20px rgba(56, 189, 248, 0.15);
+            --radius: 20px;
             /* fluid type scales */
-            --fs-body: clamp(14px, 1.6vw, 16px);
-            --fs-h1: clamp(1.6rem, 4vw, 2.8rem);
-            --fs-h2: clamp(1.1rem, 2.2vw, 1.5rem);
+            --fs-body: clamp(15px, 1.6vw, 17px);
+            --fs-h1: clamp(2.2rem, 5vw, 3.5rem);
+            --fs-h2: clamp(1.5rem, 3vw, 2.2rem);
             --fs-small: clamp(.85rem, 1.6vw, .95rem);
         }
 
         * {
-            box-sizing: border-box
-        }
-
-        html,
-        body {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            background: var(--bg, #0b0c0f);
-            color: var(--text, #e8eaed);
-            font: var(--fs-body)/1.6 system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji";
-            min-height: 100%;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text-main);
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            font-size: var(--fs-body);
+            line-height: 1.7;
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Subtle glowing background orbs */
+        body::before, body::after {
+            content: '';
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(120px);
+            z-index: -1;
+            opacity: 0.15;
+            pointer-events: none;
+        }
+        body::before {
+            width: 600px;
+            height: 600px;
+            background: #38bdf8;
+            top: -200px;
+            left: -100px;
+        }
+        body::after {
+            width: 500px;
+            height: 500px;
+            background: #818cf8;
+            bottom: -100px;
+            right: -100px;
         }
 
         a {
@@ -63,11 +103,17 @@
         header {
             position: sticky;
             top: 0;
-            backdrop-filter: saturate(160%) blur(8px);
-            -webkit-backdrop-filter: saturate(160%) blur(8px);
-            background: rgba(11, 12, 15, .6);
-            border-bottom: 1px solid rgba(255, 255, 255, .06);
-            z-index: 50
+            backdrop-filter: saturate(180%) blur(16px);
+            -webkit-backdrop-filter: saturate(180%) blur(16px);
+            background: rgba(3, 7, 18, 0.75);
+            border-bottom: 1px solid var(--card-border);
+            z-index: 50;
+            transition: transform 0.3s ease;
+        }
+        
+        /* Expand header container to guarantee it fits on desktop */
+        header .container {
+            max-width: 1300px;
         }
 
         nav {
@@ -90,10 +136,14 @@
 
         .pill {
             display: inline-block;
-            padding: 6px 12px;
-            border: 1px solid rgba(255, 255, 255, .08);
+            white-space: nowrap;
+            padding: 4px 14px;
+            border: 1px solid var(--card-border);
             border-radius: 999px;
-            background: rgba(255, 255, 255, .03)
+            background: rgba(255, 255, 255, 0.05);
+            font-size: var(--fs-small);
+            font-weight: 500;
+            backdrop-filter: blur(4px);
         }
 
         .links a {
@@ -104,17 +154,32 @@
             display: inline-flex;
             align-items: center;
             gap: 10px;
-            padding: 12px 16px;
+            padding: 10px 20px;
             border-radius: 12px;
-            border: 1px solid rgba(255, 255, 255, .09);
-            background: linear-gradient(180deg, rgba(255, 255, 255, .06), rgba(255, 255, 255, .02));
-            box-shadow: var(--shadow);
-            color: var(--text);
-            white-space: nowrap
+            border: 1px solid var(--card-border);
+            background: rgba(255, 255, 255, 0.03);
+            color: var(--text-main);
+            font-weight: 500;
+            white-space: nowrap;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(4px);
         }
 
         .btn:hover {
-            transform: translateY(-1px)
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-glow);
+            color: #fff;
+            text-decoration: none;
+        }
+        
+        .kicker {
+            color: var(--brand);
+            font-weight: 600;
+            letter-spacing: .28px;
+            text-transform: uppercase;
+            font-size: var(--fs-small)
         }
 
         .hero {
@@ -126,37 +191,41 @@
 
         .card {
             background: var(--card);
-            border: 1px solid rgba(255, 255, 255, .06);
+            border: 1px solid var(--card-border);
             border-radius: var(--radius);
-            box-shadow: var(--shadow)
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            border-color: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
         }
 
         .card .inner {
             padding: 26px
         }
 
-        .kicker {
-            color: var(--brand);
-            font-weight: 600;
-            letter-spacing: .28px;
-            text-transform: uppercase;
-            font-size: var(--fs-small)
-        }
-
         h1 {
             font-size: var(--fs-h1);
             line-height: 1.15;
-            margin: .2em 0 .4em
+            margin: .2em 0 .4em;
+            font-weight: 700;
+            letter-spacing: -1px;
         }
 
         h2 {
             font-size: var(--fs-h2);
-            margin: 0 0 10px
+            margin: 0 0 16px;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+            color: #fff;
         }
 
         p {
-            margin: 0 0 12px;
-            color: #d6d9df
+            margin: 0 0 16px;
+            color: var(--text-muted);
         }
 
         ul {
@@ -177,14 +246,21 @@
         }
 
         .tag {
-            display: inline-block;
-            margin: 3px 6px 0 0;
-            padding: 6px 10px;
+            display: inline-flex;
+            margin: 4px 8px 4px 0;
+            align-items: center;
+            padding: 6px 14px;
             border-radius: 999px;
-            background: rgba(126, 231, 135, .1);
-            border: 1px solid rgba(126, 231, 135, .3);
+            background: rgba(52, 211, 153, 0.1);
+            border: 1px solid rgba(52, 211, 153, 0.2);
             color: var(--accent);
-            font-size: .9rem
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        .tag:hover {
+            background: rgba(52, 211, 153, 0.15);
+            border-color: rgba(52, 211, 153, 0.3);
         }
 
         .muted {
@@ -192,7 +268,7 @@
         }
 
         .section {
-            padding: 26px
+            padding: 40px;
         }
 
         .footer {
@@ -205,11 +281,16 @@
 
         .avatar {
             width: 100%;
-            max-width: 360px;
+            max-width: 380px;
             aspect-ratio: 1/1;
-            border-radius: 18px;
+            border-radius: 20px;
             object-fit: cover;
-            border: 1px solid rgba(255, 255, 255, .08)
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 20px 40px -10px rgba(0,0,0,0.5);
+            transition: transform 0.4s ease;
+        }
+        .avatar:hover {
+            transform: scale(1.02);
         }
 
         /* ---------- Responsive tuning ---------- */
@@ -320,6 +401,55 @@
                 transform: none
             }
         }
+
+        /* Keep pills short on medium screens so links can fit */
+        @media (max-width: 1100px) {
+            .pill {
+                font-size: 0.8rem;
+                padding: 4px 10px;
+            }
+            .nav-left {
+                gap: 12px;
+            }
+            .links a {
+                margin-left: 8px;
+                font-size: 0.95rem;
+            }
+        }
+        
+        /* Icon Button Styles */
+        .icon-btn {
+            padding: 10px 14px;
+            font-size: 1.2rem;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        /* Prevent header links from wrapping */
+        header nav {
+            flex-wrap: nowrap;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            padding-bottom: 4px; /* for scrollbar */
+        }
+        /* Hide scrollbars elegantly but allow scrolling */
+        header nav::-webkit-scrollbar {
+            height: 4px;
+        }
+        header nav::-webkit-scrollbar-thumb {
+            background-color: var(--card-border);
+            border-radius: 4px;
+        }
+        .links {
+            display: flex;
+            white-space: nowrap;
+            padding-right: 12px; /* ensure last item doesn't cut off */
+        }
+        .nav-left {
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
     </style>
 </head>
 
@@ -328,13 +458,17 @@
         <div class="container">
             <nav>
                 <div class="nav-left">
-                    <span class="brand">Arrosan Rajalingam</span>
+                    <span class="brand" style="background: var(--brand-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-size: 1.1rem;">Arrosan Rajalingam</span>
                     <span class="pill">PhD Researcher • Murakami Lab • University of Aberdeen</span>
                 </div>
                 <div class="links" aria-label="Section links">
                     <a href="#about">About</a>
                     <a href="#research">Research</a>
+                    <a href="#supervisors">Supervisory Team</a>
+                    <a href="#teaching">Teaching</a>
                     <a href="#projects">Projects</a>
+                    <a href="#achievements">Achievements</a>
+                    <a href="#memberships">Memberships</a>
                     <a href="#publications">Publications</a>
                     <a href="#contact">Contact</a>
                 </div>
@@ -351,19 +485,27 @@
                     <h1>Defining meiosis-specific cohesin–chromosome-axis interactions that govern recombination
                         initiation.</h1>
                     <p>I am a PhD Researcher in the Murakami Lab (Institute of Medical Sciences, University of
-                        Aberdeen), supervised by <a href="https://www.abdn.ac.uk/people/hajime.murakami1"
-                            rel="noopener">Dr Hajime Murakami</a> (primary supervisor) and <a
-                            href="https://www.abdn.ac.uk/people/a.lorenz" rel="noopener">Dr Alexander Lorenz</a>
+                        Aberdeen), supervised by <a href="https://www.abdn.ac.uk/people/hajime.murakami1" rel="noopener"
+                            target="_blank" target="_blank">Dr Hajime Murakami</a> (primary supervisor) and <a
+                            href="https://www.abdn.ac.uk/people/a.lorenz" rel="noopener" target="_blank"
+                            target="_blank">Dr Alexander Lorenz</a>
                         (co-supervisor). My research focuses on how cohesin and chromosome-axis proteins regulate
                         meiotic DNA double-strand break (DSB) formation and recombination initiation, using calibrated
                         ChIP-seq, molecular genetics, and quantitative analysis workflows in R/Python.</p>
                     <div style="margin-top:18px;display:flex;gap:12px;flex-wrap:wrap">
-                        <a class="btn" href="mailto:a.rajalingam.23@abdn.ac.uk">Email me</a>
-                        <a class="btn" href="/cv/Arrosan_Rajalingam_CV.pdf">Download CV</a>
-                        <a class="btn" href="https://github.com/ArrosanRajalingam" rel="noopener">GitHub</a>
-                        <a class="btn" href="https://scholar.google.com/citations?user=ezPEEUIAAAAJ&hl=en"
-                            rel="noopener">Google Scholar</a>
-                        <a class="btn" href="https://orcid.org/0000-0002-1933-7741" rel="noopener">ORCID</a>
+                        <a class="btn icon-btn" href="mailto:a.rajalingam.23@abdn.ac.uk" title="Email me"><i
+                                class="fa-solid fa-envelope"></i></a>
+                        <a class="btn icon-btn" href="/cv/Arrosan_Rajalingam_CV.pdf" title="Download CV"
+                            target="_blank" style="font-weight: 700; font-size: 1rem;">CV</a>
+                        <a class="btn icon-btn" href="https://github.com/ArrosanRajalingam" rel="noopener"
+                            target="_blank" title="GitHub"><i class="fa-brands fa-github"></i></a>
+                        <a class="btn icon-btn" href="https://scholar.google.com/citations?user=ezPEEUIAAAAJ&hl=en"
+                            rel="noopener" target="_blank" title="Google Scholar"><i
+                                class="ai ai-google-scholar"></i></a>
+                        <a class="btn icon-btn" href="https://orcid.org/0000-0002-1933-7741" rel="noopener"
+                            target="_blank" title="ORCID"><i class="ai ai-orcid"></i></a>
+                        <a class="btn icon-btn" href="https://bsky.app/profile/arrosan.bsky.social" rel="noopener"
+                            target="_blank" title="Bluesky"><i class="fa-brands fa-bluesky"></i></a>
                     </div>
                 </div>
             </div>
@@ -372,7 +514,7 @@
             </aside>
         </section>
 
-        <!-- ABOUT -->
+<!-- ABOUT -->
         <section id="about" class="card section">
             <h2>About</h2>
             <p>I am a PhD researcher in the Murakami Lab at the Institute of Medical Sciences, University of Aberdeen.
@@ -387,9 +529,11 @@
             <p><strong>Thesis topic:</strong> <em>Meiosis-Specific Interaction Between Cohesin and Chromosome Axis
                     Proteins Regulates Recombination Initiation</em><br />
                 <strong>Primary Supervisor (PhD):</strong> <a href="https://www.abdn.ac.uk/people/hajime.murakami1"
-                    rel="noopener">Dr Hajime Murakami</a> (Advanced Research Fellow, University of Aberdeen; meiosis and
+                    rel="noopener" target="_blank" target="_blank">Dr Hajime Murakami</a> (Advanced Research Fellow,
+                University of Aberdeen; meiosis and
                 meiotic recombination initiation / DSB regulation) &nbsp;|&nbsp;
-                <strong>Co-supervisor:</strong> <a href="https://www.abdn.ac.uk/people/a.lorenz" rel="noopener">Dr
+                <strong>Co-supervisor:</strong> <a href="https://www.abdn.ac.uk/people/a.lorenz" rel="noopener"
+                    target="_blank" target="_blank">Dr
                     Alexander Lorenz</a> (Senior Lecturer, University of Aberdeen; fungal genetics and molecular cell
                 biology)
             </p>
@@ -402,59 +546,6 @@
                 <span class="tag">Molecular Genetics</span>
                 <span class="tag">R & Python</span>
                 <span class="tag">Linux</span>
-            </div>
-        </section>
-
-        <!-- TEACHING / SUPERVISION -->
-        <section id="teaching" class="card section" style="margin-top:22px">
-            <h2>Teaching & Supervision</h2>
-
-            <div class="grid cols-2" style="margin-top:10px">
-                <div class="card section">
-                    <h3 style="margin-top:0">Demonstration / Teaching</h3>
-                    <p><strong>Demonstrator, GN3502: Genetics Practical (2026)</strong> — University of Aberdeen</p>
-                    <p class="muted" style="margin-bottom:0">Course Coordinator: Dr Alexander Lorenz</p>
-                </div>
-
-                <div class="card section">
-                    <h3 style="margin-top:0">Student Supervision & Mentoring</h3>
-                    <p>Supervision and training support for undergraduate and visiting students in molecular
-                        biology/genetics laboratory work, including experimental planning, practical workflows, and
-                        research communication.</p>
-                    <p class="muted" style="margin-bottom:0">Includes mentoring of undergraduate and visiting students
-                        in the Murakami/Lorenz research environment.</p>
-                </div>
-            </div>
-
-            <h3 style="margin-top:18px">Supervisory Team</h3>
-            <div class="grid cols-2" style="margin-top:8px">
-                <div class="card section">
-                    <h4 style="margin-top:0">Dr Hajime Murakami (Primary PhD Supervisor)</h4>
-                    <p>Dr Murakami is my primary PhD supervisor and leads the Murakami Lab at the University of
-                        Aberdeen. He is an <strong>Advanced Research Fellow</strong> in the School of Medicine, Medical
-                        Sciences and Nutrition. His research focuses on the initiation stage of meiotic recombination,
-                        particularly the programmed formation of DNA double-strand breaks (DSBs) and the
-                        chromosome-associated mechanisms that regulate robust meiotic recombination.</p>
-                    <p style="margin-bottom:0">
-                        <a href="https://www.abdn.ac.uk/people/hajime.murakami1" rel="noopener">University profile</a> ·
-                        <a href="https://abdn.elsevierpure.com/en/persons/hajime-murakami-2" rel="noopener">Pure
-                            profile</a> ·
-                        <a href="https://orcid.org/0000-0002-7022-6887" rel="noopener">ORCID</a>
-                    </p>
-                </div>
-
-                <div class="card section">
-                    <h4 style="margin-top:0">Dr Alexander Lorenz (Co-supervisor)</h4>
-                    <p>Dr Lorenz is my PhD co-supervisor and a <strong>Senior Lecturer</strong> at the University of
-                        Aberdeen. His expertise spans fungal genetics, molecular cell biology, and genetics education,
-                        and he also coordinates teaching including the GN3502 Genetics Practical.</p>
-                    <p style="margin-bottom:0">
-                        <a href="https://www.abdn.ac.uk/people/a.lorenz" rel="noopener">University profile</a> ·
-                        <a href="https://abdn.elsevierpure.com/en/persons/alexander-lorenz/" rel="noopener">Pure
-                            profile</a> ·
-                        <a href="https://orcid.org/0000-0003-1925-3713" rel="noopener">ORCID</a>
-                    </p>
-                </div>
             </div>
         </section>
 
@@ -495,6 +586,68 @@
             </div>
         </section>
 
+        <!-- SUPERVISORY TEAM -->
+        <section id="supervisors" class="card section" style="margin-top:22px">
+            <h2>Supervisory Team</h2>
+            <div class="grid cols-2" style="margin-top:10px">
+                <div class="card section">
+                    <h4 style="margin-top:0">Dr Hajime Murakami (Primary PhD Supervisor)</h4>
+                    <p>Dr Murakami is my primary PhD supervisor and leads the Murakami Lab at the University of
+                        Aberdeen. He is an <strong>Advanced Research Fellow</strong> in the School of Medicine, Medical
+                        Sciences and Nutrition. His research focuses on the initiation stage of meiotic recombination,
+                        particularly the programmed formation of DNA double-strand breaks (DSBs) and the
+                        chromosome-associated mechanisms that regulate robust meiotic recombination.</p>
+                    <p style="margin-bottom:0">
+                        <a href="https://www.abdn.ac.uk/people/hajime.murakami1" rel="noopener" target="_blank"
+                            target="_blank">University profile</a> ·
+                        <a href="https://abdn.elsevierpure.com/en/persons/hajime-murakami-2" rel="noopener"
+                            target="_blank" target="_blank">Pure
+                            profile</a> ·
+                        <a href="https://orcid.org/0000-0002-7022-6887" rel="noopener" target="_blank"
+                            target="_blank">ORCID</a>
+                    </p>
+                </div>
+
+                <div class="card section">
+                    <h4 style="margin-top:0">Dr Alexander Lorenz (Co-supervisor)</h4>
+                    <p>Dr Lorenz is my PhD co-supervisor and a <strong>Senior Lecturer</strong> at the University of
+                        Aberdeen. His expertise spans fungal genetics, molecular cell biology, and genetics education,
+                        and he also coordinates teaching including the GN3502 Genetics Practical.</p>
+                    <p style="margin-bottom:0">
+                        <a href="https://www.abdn.ac.uk/people/a.lorenz" rel="noopener" target="_blank"
+                            target="_blank">University profile</a> ·
+                        <a href="https://abdn.elsevierpure.com/en/persons/alexander-lorenz/" rel="noopener"
+                            target="_blank" target="_blank">Pure
+                            profile</a> ·
+                        <a href="https://orcid.org/0000-0003-1925-3713" rel="noopener" target="_blank"
+                            target="_blank">ORCID</a>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- TEACHING / SUPERVISION -->
+        <section id="teaching" class="card section" style="margin-top:22px">
+            <h2>Teaching & Supervision</h2>
+
+            <div class="grid cols-2" style="margin-top:10px">
+                <div class="card section">
+                    <h3 style="margin-top:0">Demonstration / Teaching</h3>
+                    <p><strong>Demonstrator, GN3502: Genetics Practical (2026)</strong> — University of Aberdeen</p>
+                    <p class="muted" style="margin-bottom:0">Course Coordinator: Dr Alexander Lorenz</p>
+                </div>
+
+                <div class="card section">
+                    <h3 style="margin-top:0">Student Supervision & Mentoring</h3>
+                    <p>Supervision and training support for undergraduate and visiting students in molecular
+                        biology/genetics laboratory work, including experimental planning, practical workflows, and
+                        research communication.</p>
+                    <p class="muted" style="margin-bottom:0">Includes mentoring of undergraduate and visiting students
+                        in the Murakami/Lorenz research environment.</p>
+                </div>
+            </div>
+        </section>
+
         <!-- PROJECTS -->
         <section id="projects" class="card section" style="margin-top:22px">
             <h2>Projects</h2>
@@ -516,6 +669,36 @@
             <div id="repo-status" class="muted" style="margin-top:10px"></div>
         </section>
 
+        <!-- ACHIEVEMENTS -->
+        <section id="achievements" class="card section" style="margin-top:22px">
+            <h2>Achievements</h2>
+            <ul style="margin-left: 0; padding-left: 20px;">
+                <li style="margin-bottom: 8px;"><strong>Elphinstone Award & School of Medicine Award for PhD
+                        Funding</strong> (2023)</li>
+                <li style="margin-bottom: 8px;"><strong>Chevening Scholarship</strong> – UK Government International
+                    Awards Programme (2021)</li>
+                <li style="margin-bottom: 8px;"><strong>College Award (CREAM)</strong> – Garden City College (2013)</li>
+                <li style="margin-bottom: 8px;"><strong>Best Poster Presentation</strong> – HOLICON International
+                    Conference (2012)</li>
+                <li style="margin-bottom: 8px;"><strong>Best Outgoing Sri Lankan Student Award</strong> (2013)</li>
+            </ul>
+        </section>
+
+        <!-- MEMBERSHIPS -->
+        <section id="memberships" class="card section" style="margin-top:22px">
+            <h2>Memberships</h2>
+            <ul style="list-style: none; margin-left: 0; padding-left: 0;">
+                <li style="margin-bottom: 8px; display: flex; align-items: center; gap: 10px;">
+                    <i class="fa-solid fa-dna" style="color: var(--brand); width: 20px; text-align: center;"></i>
+                    <span>Member, Genetics Society (2023–Present)</span>
+                </li>
+                <li style="margin-bottom: 8px; display: flex; align-items: center; gap: 10px;">
+                    <i class="fa-solid fa-flask" style="color: var(--brand); width: 20px; text-align: center;"></i>
+                    <span>Member, Biochemical Society (2023–Present)</span>
+                </li>
+            </ul>
+        </section>
+
         <!-- PUBLICATIONS -->
         <section id="publications" class="card section" style="margin-top:22px">
             <h2>Publications (selected)</h2>
@@ -525,13 +708,15 @@
                     Assessment of mental health problems among adolescents in Sri Lanka: Findings from the
                     cross-sectional Global School-based Health Survey.
                     <em>Health Science Reports</em> (2022) e886.
-                    <a href="https://doi.org/10.1002/hsr2.886" rel="noopener">DOI: 10.1002/hsr2.886</a>
+                    <a href="https://doi.org/10.1002/hsr2.886" rel="noopener" target="_blank" target="_blank">DOI:
+                        10.1002/hsr2.886</a>
                 </li>
                 <li>
                     <strong>Rasalingam G, Rajalingam A.</strong>
                     Parental Engagement and Adolescents Mental Health Wellbeing: Cross-Sectional Study from Sri Lanka.
                     <em>Public Health Review: International Journal of Public Health Research</em> (2021) 8(4):45–52.
-                    <a href="https://doi.org/10.17511/ijphr.2021.i04.01" rel="noopener">DOI:
+                    <a href="https://doi.org/10.17511/ijphr.2021.i04.01" rel="noopener" target="_blank"
+                        target="_blank">DOI:
                         10.17511/ijphr.2021.i04.01</a>
                 </li>
             </ul>
@@ -547,29 +732,40 @@
             </ul>
 
             <p class="muted" style="margin-top:10px">For a complete list, see <a
-                    href="https://scholar.google.com/citations?user=ezPEEUIAAAAJ&hl=en" rel="noopener">Google
-                    Scholar</a>, <a href="https://orcid.org/0000-0002-1933-7741" rel="noopener">ORCID</a>, and my <a
-                    href="https://abdn.elsevierpure.com/en/persons/arrosan-rajalingam/" rel="noopener">University of
+                    href="https://scholar.google.com/citations?user=ezPEEUIAAAAJ&hl=en" rel="noopener" target="_blank"
+                    target="_blank">Google
+                    Scholar</a>, <a href="https://orcid.org/0000-0002-1933-7741" rel="noopener" target="_blank"
+                    target="_blank">ORCID</a>, and my <a
+                    href="https://abdn.elsevierpure.com/en/persons/arrosan-rajalingam/" rel="noopener" target="_blank"
+                    target="_blank">University of
                     Aberdeen Pure profile</a>.</p>
         </section>
 
-        <!-- CONTACT -->
         <section id="contact" class="card section" style="margin-top:22px">
             <h2>Contact</h2>
             <p>Email: <a href="mailto:a.rajalingam.23@abdn.ac.uk">a.rajalingam.23@abdn.ac.uk</a> <span
                     class="muted">(alt: <a
                         href="mailto:arrosan.rajalingam@gmail.com">arrosan.rajalingam@gmail.com</a>)</span></p>
             <p class="muted">PhD Researcher, Murakami Lab • Institute of Medical Sciences • University of Aberdeen</p>
-            <div style="margin-top:6px;display:flex;flex-wrap:wrap;gap:10px">
-                <a class="btn" href="https://github.com/ArrosanRajalingam" rel="noopener">GitHub</a>
-                <a class="btn" href="https://scholar.google.com/citations?user=ezPEEUIAAAAJ&hl=en" rel="noopener">Google
-                    Scholar</a>
-                <a class="btn" href="https://orcid.org/0000-0002-1933-7741" rel="noopener">ORCID</a>
-                <a class="btn" href="https://www.linkedin.com/in/arrosan06" rel="noopener">LinkedIn</a>
-                <a class="btn" href="https://x.com/R_Arrosan" rel="noopener">X / Twitter</a>
-                <a class="btn" href="https://www.abdn.ac.uk/people/a.rajalingam.23" rel="noopener">Aberdeen Profile</a>
-                <a class="btn" href="https://abdn.elsevierpure.com/en/persons/arrosan-rajalingam/" rel="noopener">Pure
-                    Profile</a>
+            <div style="margin-top:12px;display:flex;flex-wrap:wrap;gap:12px">
+                <a class="btn icon-btn" href="mailto:a.rajalingam.23@abdn.ac.uk" title="Email me"><i
+                        class="fa-solid fa-envelope"></i></a>
+                <a class="btn icon-btn" href="https://github.com/ArrosanRajalingam" rel="noopener" target="_blank"
+                    title="GitHub"><i class="fa-brands fa-github"></i></a>
+                <a class="btn icon-btn" href="https://scholar.google.com/citations?user=ezPEEUIAAAAJ&hl=en"
+                    rel="noopener" target="_blank" title="Google Scholar"><i class="ai ai-google-scholar"></i></a>
+                <a class="btn icon-btn" href="https://orcid.org/0000-0002-1933-7741" rel="noopener" target="_blank"
+                    title="ORCID"><i class="ai ai-orcid"></i></a>
+                <a class="btn icon-btn" href="https://bsky.app/profile/arrosan.bsky.social" rel="noopener"
+                    target="_blank" title="Bluesky"><i class="fa-brands fa-bluesky"></i></a>
+                <a class="btn icon-btn" href="https://www.linkedin.com/in/arrosan06" rel="noopener" target="_blank"
+                    title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+                <a class="btn icon-btn" href="https://x.com/R_Arrosan" rel="noopener" target="_blank"
+                    title="X / Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+                <a class="btn icon-btn" href="https://www.abdn.ac.uk/people/a.rajalingam.23" rel="noopener"
+                    target="_blank" title="Aberdeen Profile"><i class="fa-solid fa-building-columns"></i></a>
+                <a class="btn icon-btn" href="https://abdn.elsevierpure.com/en/persons/arrosan-rajalingam/"
+                    rel="noopener" target="_blank" title="Pure Profile"><i class="ai ai-elsevier"></i></a>
             </div>
         </section>
 
@@ -581,6 +777,31 @@
 
     <script>
         document.getElementById('y').textContent = new Date().getFullYear();
+
+
+        // Fade in on scroll
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section, .hero, .card').forEach((el) => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
+            observer.observe(el);
+        });
 
         // --- Dynamic GitHub repo grid ---
         (function () {
@@ -601,7 +822,7 @@
                     a.className = 'card';
                     a.innerHTML = `
             <div class="inner">
-              <h3 style="margin:0 0 6px"><a href="${r.html_url}" rel="noopener">${r.name}</a></h3>
+              <h3 style="margin:0 0 6px"><a href="${r.html_url}" rel="noopener" target="_blank">${r.name}</a></h3>
               <p class="muted" style="min-height:2.6em">${r.description ? r.description : ''}</p>
               <div class="muted" style="display:flex;gap:14px;flex-wrap:wrap;margin-top:8px">
                 ${r.language ? `<span>${r.language}</span>` : ''}
