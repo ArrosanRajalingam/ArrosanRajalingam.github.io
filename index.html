@@ -44,7 +44,7 @@
             margin: 0;
             padding: 0;
         }
-        
+
         html {
             scroll-behavior: smooth;
         }
@@ -61,7 +61,8 @@
         }
 
         /* Subtle glowing background orbs */
-        body::before, body::after {
+        body::before,
+        body::after {
             content: '';
             position: fixed;
             border-radius: 50%;
@@ -70,6 +71,7 @@
             opacity: 0.15;
             pointer-events: none;
         }
+
         body::before {
             width: 600px;
             height: 600px;
@@ -77,6 +79,7 @@
             top: -200px;
             left: -100px;
         }
+
         body::after {
             width: 500px;
             height: 500px;
@@ -110,7 +113,7 @@
             z-index: 50;
             transition: transform 0.3s ease;
         }
-        
+
         /* Expand header container to guarantee it fits on desktop */
         header .container {
             max-width: 1300px;
@@ -173,7 +176,7 @@
             color: #fff;
             text-decoration: none;
         }
-        
+
         .kicker {
             color: var(--brand);
             font-weight: 600;
@@ -198,6 +201,7 @@
             box-shadow: var(--shadow);
             transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
         }
+
         .card:hover {
             border-color: rgba(255, 255, 255, 0.15);
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
@@ -258,6 +262,7 @@
             font-weight: 500;
             transition: all 0.2s ease;
         }
+
         .tag:hover {
             background: rgba(52, 211, 153, 0.15);
             border-color: rgba(52, 211, 153, 0.3);
@@ -286,9 +291,10 @@
             border-radius: 20px;
             object-fit: cover;
             border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 20px 40px -10px rgba(0,0,0,0.5);
+            box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.5);
             transition: transform 0.4s ease;
         }
+
         .avatar:hover {
             transform: scale(1.02);
         }
@@ -408,15 +414,17 @@
                 font-size: 0.8rem;
                 padding: 4px 10px;
             }
+
             .nav-left {
                 gap: 12px;
             }
+
             .links a {
                 margin-left: 8px;
                 font-size: 0.95rem;
             }
         }
-        
+
         /* Icon Button Styles */
         .icon-btn {
             padding: 10px 14px;
@@ -425,27 +433,33 @@
             justify-content: center;
             align-items: center;
         }
-        
+
         /* Prevent header links from wrapping */
         header nav {
             flex-wrap: nowrap;
             overflow-x: auto;
             -webkit-overflow-scrolling: touch;
-            padding-bottom: 4px; /* for scrollbar */
+            padding-bottom: 4px;
+            /* for scrollbar */
         }
+
         /* Hide scrollbars elegantly but allow scrolling */
         header nav::-webkit-scrollbar {
             height: 4px;
         }
+
         header nav::-webkit-scrollbar-thumb {
             background-color: var(--card-border);
             border-radius: 4px;
         }
+
         .links {
             display: flex;
             white-space: nowrap;
-            padding-right: 12px; /* ensure last item doesn't cut off */
+            padding-right: 12px;
+            /* ensure last item doesn't cut off */
         }
+
         .nav-left {
             white-space: nowrap;
             flex-shrink: 0;
@@ -458,7 +472,9 @@
         <div class="container">
             <nav>
                 <div class="nav-left">
-                    <span class="brand" style="background: var(--brand-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-size: 1.1rem;">Arrosan Rajalingam</span>
+                    <span class="brand"
+                        style="background: var(--brand-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-size: 1.1rem;">Arrosan
+                        Rajalingam</span>
                     <span class="pill">PhD Researcher • Murakami Lab • University of Aberdeen</span>
                 </div>
                 <div class="links" aria-label="Section links">
@@ -495,8 +511,8 @@
                     <div style="margin-top:18px;display:flex;gap:12px;flex-wrap:wrap">
                         <a class="btn icon-btn" href="mailto:a.rajalingam.23@abdn.ac.uk" title="Email me"><i
                                 class="fa-solid fa-envelope"></i></a>
-                        <a class="btn icon-btn" href="/cv/Arrosan_Rajalingam_CV.pdf" title="Download CV"
-                            target="_blank" style="font-weight: 700; font-size: 1rem;">CV</a>
+                        <a class="btn icon-btn" href="/cv/Arrosan_Rajalingam_CV.pdf" title="Download CV" target="_blank"
+                            style="font-weight: 700; font-size: 1rem;">CV</a>
                         <a class="btn icon-btn" href="https://github.com/ArrosanRajalingam" rel="noopener"
                             target="_blank" title="GitHub"><i class="fa-brands fa-github"></i></a>
                         <a class="btn icon-btn" href="https://scholar.google.com/citations?user=ezPEEUIAAAAJ&hl=en"
@@ -514,7 +530,7 @@
             </aside>
         </section>
 
-<!-- ABOUT -->
+        <!-- ABOUT -->
         <section id="about" class="card section">
             <h2>About</h2>
             <p>I am a PhD researcher in the Murakami Lab at the Institute of Medical Sciences, University of Aberdeen.
@@ -732,11 +748,11 @@
             <ul style="list-style: none; margin-left: 0; padding-left: 0;">
                 <li style="margin-bottom: 8px; display: flex; align-items: center; gap: 10px;">
                     <i class="fa-solid fa-dna" style="color: var(--brand); width: 20px; text-align: center;"></i>
-                    <span>Member, Genetics Society (2023–Present)</span>
+                    <span>Member, Genetics Society, United Kingdom (2023–Present)</span>
                 </li>
                 <li style="margin-bottom: 8px; display: flex; align-items: center; gap: 10px;">
                     <i class="fa-solid fa-flask" style="color: var(--brand); width: 20px; text-align: center;"></i>
-                    <span>Member, Biochemical Society (2023–Present)</span>
+                    <span>Member, Biochemical Society, United Kingdom (2023–Present)</span>
                 </li>
             </ul>
         </section>
@@ -744,8 +760,8 @@
         <section id="contact" class="card section" style="margin-top:22px">
             <h2>Contact</h2>
             <p>Email: <a href="mailto:a.rajalingam.23@abdn.ac.uk">a.rajalingam.23@abdn.ac.uk</a> <span
-                    class="muted">(alt: <a
-                        href="mailto:arrosan.rajalingam@gmail.com">arrosan.rajalingam@gmail.com</a>)</span></p>
+                    class="muted">(alt: <a href="mailto:arrosan06@gmail.com">arrosan.rajalingam@gmail.com</a>)</span>
+            </p>
             <p class="muted">PhD Researcher, Murakami Lab • Institute of Medical Sciences • University of Aberdeen</p>
             <div style="margin-top:12px;display:flex;flex-wrap:wrap;gap:12px">
                 <a class="btn icon-btn" href="mailto:a.rajalingam.23@abdn.ac.uk" title="Email me"><i
