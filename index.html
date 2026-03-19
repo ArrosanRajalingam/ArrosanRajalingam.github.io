@@ -45,7 +45,6 @@
             --tag-border: rgba(52, 211, 153, 0.2);
             --tag-hover-bg: rgba(52, 211, 153, 0.15);
             --tag-hover-border: rgba(52, 211, 153, 0.3);
-            /* fluid type scales */
             --fs-body: clamp(15px, 1.6vw, 17px);
             --fs-h1: clamp(2.2rem, 5vw, 3.5rem);
             --fs-h2: clamp(1.5rem, 3vw, 2.2rem);
@@ -73,7 +72,6 @@
             overflow-x: hidden;
         }
 
-        /* Subtle glowing background orbs */
         body::before,
         body::after {
             content: '';
@@ -127,7 +125,6 @@
             transition: transform 0.3s ease;
         }
 
-        /* Expand header container to guarantee it fits on desktop */
         header .container {
             max-width: 1300px;
         }
@@ -152,7 +149,6 @@
 
         .pill {
             display: inline-block;
-
             padding: 4px 14px;
             border: 1px solid var(--card-border);
             border-radius: 999px;
@@ -176,7 +172,6 @@
             background: var(--btn-bg);
             color: var(--text-main);
             font-weight: 500;
-
             transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
             backdrop-filter: blur(4px);
         }
@@ -317,8 +312,52 @@
             transform: scale(1.02);
         }
 
+        /* ── Page navigation tabs ── */
+        .page-tabs {
+            display: flex;
+            align-items: center;
+            gap: 2px;
+        }
+
+        .page-tabs a {
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            text-decoration: none;
+            padding: 6px 14px;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+            white-space: nowrap;
+        }
+
+        .page-tabs a:hover {
+            color: var(--text-main);
+            background: var(--btn-hover-bg);
+            text-decoration: none;
+        }
+
+        .page-tabs a.active {
+            color: #38bdf8;
+            background: rgba(56, 189, 248, 0.1);
+        }
+
+        /* ── Mobile hamburger for page tabs ── */
+        .mobile-tabs-toggle {
+            display: none;
+            background: none;
+            border: 1px solid var(--card-border);
+            border-radius: 8px;
+            padding: 6px 10px;
+            cursor: pointer;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            font-weight: 500;
+            font-family: inherit;
+            align-items: center;
+            gap: 6px;
+        }
+
         /* ---------- Responsive tuning ---------- */
-        /* Large tablets and below */
         @media (max-width: 1024px) {
             .container {
                 padding: 22px
@@ -335,7 +374,6 @@
             }
         }
 
-        /* Phones and small tablets */
         @media (max-width: 768px) {
             .container {
                 padding: 18px
@@ -349,9 +387,6 @@
                 display: none
             }
 
-
-
-            /* collapse top nav links, rely on in-page sections */
             .card .inner {
                 padding: 20px
             }
@@ -382,7 +417,6 @@
                 display: block
             }
 
-            /* project controls wrap nicely */
             #projects .btn,
             #projects input,
             #projects select {
@@ -392,9 +426,38 @@
             #repo-search {
                 min-width: 0
             }
+
+            /* Page tabs → collapsible on mobile */
+            .page-tabs {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--header-bg);
+                backdrop-filter: saturate(180%) blur(16px);
+                -webkit-backdrop-filter: saturate(180%) blur(16px);
+                flex-direction: column;
+                padding: 8px 16px 12px;
+                border-bottom: 1px solid var(--card-border);
+                gap: 2px;
+                z-index: 100;
+            }
+
+            .page-tabs.open {
+                display: flex;
+            }
+
+            .page-tabs a {
+                width: 100%;
+                padding: 10px 14px;
+            }
+
+            .mobile-tabs-toggle {
+                display: inline-flex;
+            }
         }
 
-        /* Very small phones */
         @media (max-width: 420px) {
             .container {
                 padding: 14px
@@ -413,7 +476,6 @@
             }
         }
 
-        /* Respect reduced-motion */
         @media (prefers-reduced-motion: reduce) {
             * {
                 scroll-behavior: auto
@@ -424,7 +486,6 @@
             }
         }
 
-        /* Keep pills short on medium screens so links can fit */
         @media (max-width: 1100px) {
             .pill {
                 font-size: 0.8rem;
@@ -441,7 +502,6 @@
             }
         }
 
-        /* Icon Button Styles */
         .icon-btn {
             padding: 10px 14px;
             font-size: 1.2rem;
@@ -450,29 +510,18 @@
             align-items: center;
         }
 
-        /* Prevent header links from wrapping */
         header nav {
             flex-wrap: nowrap;
-
-
-
-
         }
-
-
 
         .links {
             display: flex;
-
             padding-right: 12px;
-            /* ensure last item doesn't cut off */
         }
 
         .nav-left {
-
             flex-shrink: 0;
         }
-
 
         /* Dropdown Menu */
         .dropdown {
@@ -529,7 +578,6 @@
             background-color: var(--btn-hover-bg);
         }
 
-        /* Adjust .links container */
         .links {
             display: flex;
             align-items: center;
@@ -569,6 +617,25 @@
         body.light-mode::after {
             background: #e0e7ff;
         }
+
+        body.light-mode .page-tabs a {
+            color: #475569;
+        }
+
+        body.light-mode .page-tabs a:hover {
+            color: #0f172a;
+            background: rgba(0, 0, 0, 0.05);
+        }
+
+        body.light-mode .page-tabs a.active {
+            color: #0284c7;
+            background: rgba(2, 132, 199, 0.1);
+        }
+
+        body.light-mode .mobile-tabs-toggle {
+            color: #475569;
+            border-color: rgba(0, 0, 0, 0.1);
+        }
     </style>
 </head>
 
@@ -581,8 +648,21 @@
                         style="background: var(--brand-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-size: 1.1rem;">Arrosan
                         Rajalingam</span>
                     <span class="pill">PhD Researcher • Murakami Lab • University of Aberdeen</span>
+
+                    <!-- ★ NEW: Page navigation tabs ★ -->
+                    <div class="page-tabs" id="page-tabs">
+                        <a href="index.html" class="active">Home</a>
+                        <a href="blog.html">Blog</a>
+                        <a href="repos.html">Repositories</a>
+                        <a href="protocols.html">Protocols</a>
+                    </div>
                 </div>
                 <div class="links" aria-label="Section links">
+                    <!-- ★ NEW: Mobile toggle for page tabs ★ -->
+                    <button class="mobile-tabs-toggle" onclick="document.getElementById('page-tabs').classList.toggle('open')">
+                        <i class="fa-solid fa-bars" style="font-size: 0.8rem;"></i> Pages
+                    </button>
+
                     <div class="dropdown">
                         <button class="btn">Jump to Section <i class="fa-solid fa-chevron-down"
                                 style="font-size: 0.8rem; margin-left: 4px;"></i></button>
@@ -617,9 +697,8 @@
                         initiation.</h1>
                     <p>I am a PhD Researcher in the Murakami Lab (Institute of Medical Sciences, University of
                         Aberdeen), supervised by <a href="https://www.abdn.ac.uk/people/hajime.murakami1" rel="noopener"
-                            target="_blank" target="_blank">Dr Hajime Murakami</a> (primary supervisor) and <a
-                            href="https://www.abdn.ac.uk/people/a.lorenz" rel="noopener" target="_blank"
-                            target="_blank">Dr Alexander Lorenz</a>
+                            target="_blank">Dr Hajime Murakami</a> (primary supervisor) and <a
+                            href="https://www.abdn.ac.uk/people/a.lorenz" rel="noopener" target="_blank">Dr Alexander Lorenz</a>
                         (co-supervisor). My research focuses on how cohesin and chromosome-axis proteins regulate
                         meiotic DNA double-strand break (DSB) formation and recombination initiation, using calibrated
                         ChIP-seq, molecular genetics, and quantitative analysis workflows in R/Python.</p>
@@ -678,11 +757,11 @@
             <p><strong>Thesis topic:</strong> <em>Meiosis-Specific Interaction Between Cohesin and Chromosome Axis
                     Proteins Regulates Recombination Initiation</em><br />
                 <strong>Primary Supervisor (PhD):</strong> <a href="https://www.abdn.ac.uk/people/hajime.murakami1"
-                    rel="noopener" target="_blank" target="_blank">Dr Hajime Murakami</a> (Advanced Research Fellow,
+                    rel="noopener" target="_blank">Dr Hajime Murakami</a> (Advanced Research Fellow,
                 University of Aberdeen; meiosis and
                 meiotic recombination initiation / DSB regulation) &nbsp;|&nbsp;
                 <strong>Co-supervisor:</strong> <a href="https://www.abdn.ac.uk/people/a.lorenz" rel="noopener"
-                    target="_blank" target="_blank">Dr
+                    target="_blank">Dr
                     Alexander Lorenz</a> (Senior Lecturer, University of Aberdeen; fungal genetics and molecular cell
                 biology)
             </p>
@@ -747,13 +826,10 @@
                         particularly the programmed formation of DNA double-strand breaks (DSBs) and the
                         chromosome-associated mechanisms that regulate robust meiotic recombination.</p>
                     <p style="margin-bottom:0">
-                        <a href="https://www.abdn.ac.uk/people/hajime.murakami1" rel="noopener" target="_blank"
-                            target="_blank">University profile</a> ·
-                        <a href="https://abdn.elsevierpure.com/en/persons/hajime-murakami-2" rel="noopener"
-                            target="_blank" target="_blank">Pure
+                        <a href="https://www.abdn.ac.uk/people/hajime.murakami1" rel="noopener" target="_blank">University profile</a> ·
+                        <a href="https://abdn.elsevierpure.com/en/persons/hajime-murakami-2" rel="noopener" target="_blank">Pure
                             profile</a> ·
-                        <a href="https://orcid.org/0000-0002-7022-6887" rel="noopener" target="_blank"
-                            target="_blank">ORCID</a>
+                        <a href="https://orcid.org/0000-0002-7022-6887" rel="noopener" target="_blank">ORCID</a>
                     </p>
                 </div>
 
@@ -763,13 +839,10 @@
                         Aberdeen. His expertise spans fungal genetics, molecular cell biology, and genetics education,
                         and he also coordinates teaching including the GN3502 Genetics Practical.</p>
                     <p style="margin-bottom:0">
-                        <a href="https://www.abdn.ac.uk/people/a.lorenz" rel="noopener" target="_blank"
-                            target="_blank">University profile</a> ·
-                        <a href="https://abdn.elsevierpure.com/en/persons/alexander-lorenz/" rel="noopener"
-                            target="_blank" target="_blank">Pure
+                        <a href="https://www.abdn.ac.uk/people/a.lorenz" rel="noopener" target="_blank">University profile</a> ·
+                        <a href="https://abdn.elsevierpure.com/en/persons/alexander-lorenz/" rel="noopener" target="_blank">Pure
                             profile</a> ·
-                        <a href="https://orcid.org/0000-0003-1925-3713" rel="noopener" target="_blank"
-                            target="_blank">ORCID</a>
+                        <a href="https://orcid.org/0000-0003-1925-3713" rel="noopener" target="_blank">ORCID</a>
                     </p>
                 </div>
             </div>
@@ -827,15 +900,14 @@
                     Assessment of mental health problems among adolescents in Sri Lanka: Findings from the
                     cross-sectional Global School-based Health Survey.
                     <em>Health Science Reports</em> (2022) e886.
-                    <a href="https://doi.org/10.1002/hsr2.886" rel="noopener" target="_blank" target="_blank">DOI:
+                    <a href="https://doi.org/10.1002/hsr2.886" rel="noopener" target="_blank">DOI:
                         10.1002/hsr2.886</a>
                 </li>
                 <li>
                     <strong>Rasalingam G, Rajalingam A.</strong>
                     Parental Engagement and Adolescents Mental Health Wellbeing: Cross-Sectional Study from Sri Lanka.
                     <em>Public Health Review: International Journal of Public Health Research</em> (2021) 8(4):45–52.
-                    <a href="https://doi.org/10.17511/ijphr.2021.i04.01" rel="noopener" target="_blank"
-                        target="_blank">DOI:
+                    <a href="https://doi.org/10.17511/ijphr.2021.i04.01" rel="noopener" target="_blank">DOI:
                         10.17511/ijphr.2021.i04.01</a>
                 </li>
             </ul>
@@ -853,12 +925,9 @@
             </ul>
 
             <p class="muted" style="margin-top:10px">For a complete list, see <a
-                    href="https://scholar.google.com/citations?user=ezPEEUIAAAAJ&hl=en" rel="noopener" target="_blank"
-                    target="_blank">Google
-                    Scholar</a>, <a href="https://orcid.org/0000-0002-1933-7741" rel="noopener" target="_blank"
-                    target="_blank">ORCID</a>, and my <a
-                    href="https://abdn.elsevierpure.com/en/persons/arrosan-rajalingam/" rel="noopener" target="_blank"
-                    target="_blank">University of
+                    href="https://scholar.google.com/citations?user=ezPEEUIAAAAJ&hl=en" rel="noopener" target="_blank">Google
+                    Scholar</a>, <a href="https://orcid.org/0000-0002-1933-7741" rel="noopener" target="_blank">ORCID</a>, and my <a
+                    href="https://abdn.elsevierpure.com/en/persons/arrosan-rajalingam/" rel="noopener" target="_blank">University of
                     Aberdeen Pure profile</a>.</p>
         </section>
 
@@ -930,14 +999,8 @@
     <script>
         document.getElementById('y').textContent = new Date().getFullYear();
 
-
         // Fade in on scroll
-        const observerOptions = {
-            root: null,
-            rootMargin: '0px',
-            threshold: 0.1
-        };
-
+        const observerOptions = { root: null, rootMargin: '0px', threshold: 0.1 };
         const observer = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -1031,7 +1094,6 @@
         // Light/Dark mode toggle
         const themeToggle = document.getElementById('theme-toggle');
         const themeIcon = document.getElementById('theme-icon');
-
         let userHasToggled = false;
 
         const setLightMode = () => {
@@ -1044,10 +1106,8 @@
             themeIcon.classList.replace('fa-moon', 'fa-sun');
         };
 
-        // Starts dark by default
         setDarkMode();
 
-        // Auto-switch based on scroll
         window.addEventListener('scroll', () => {
             if (!userHasToggled) {
                 if (window.scrollY > 80) {
@@ -1059,7 +1119,7 @@
         });
 
         themeToggle?.addEventListener('click', () => {
-            userHasToggled = true; // Stop auto-switching if user explicitly clicks
+            userHasToggled = true;
             document.body.classList.toggle('light-mode');
             if (document.body.classList.contains('light-mode')) {
                 themeIcon.classList.replace('fa-sun', 'fa-moon');
