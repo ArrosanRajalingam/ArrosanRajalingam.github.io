@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog — Arrosan Rajalingam</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0a0a0a;
+            --bg-card: #111111;
+            --bg-code: #161616;
+            --text: #e8e8e8;
+            --text-muted: #999;
+            --text-dim: #666;
+            --accent: #64b5f6;
+            --accent-glow: rgba(100, 181, 246, 0.1);
+            --green: #66bb6a;
+            --green-dim: rgba(102, 187, 106, 0.1);
+            --orange: #ffa726;
+            --orange-dim: rgba(255, 167, 38, 0.1);
+            --purple: #ba68c8;
+            --purple-dim: rgba(186, 104, 200, 0.1);
+            --border: rgba(255,255,255,0.08);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.75;
+            font-size: 16px;
+            padding-top: 56px;
+        }
+
+        /* ── Navigation ── */
+        .site-nav {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 9999;
+            background: rgba(10, 10, 10, 0.85);
+            backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border);
+            padding: 0 24px;
+        }
+        .site-nav-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 56px; }
+        .site-nav-brand { font-family: 'Playfair Display', serif; font-size: 1.05rem; font-weight: 700; color: #f0f0f0; text-decoration: none; }
+        .site-nav-brand span { color: var(--accent); }
+        .site-nav-links { display: flex; align-items: center; gap: 4px; list-style: none; }
+        .site-nav-links a { font-size: 0.82rem; font-weight: 500; color: rgba(255,255,255,0.55); text-decoration: none; padding: 8px 14px; border-radius: 6px; transition: all 0.2s; }
+        .site-nav-links a:hover { color: #fff; background: rgba(255,255,255,0.06); }
+        .site-nav-links a.active { color: var(--accent); background: var(--accent-glow); }
+        .nav-toggle { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
+        .nav-toggle span { display: block; width: 20px; height: 2px; background: #ccc; margin: 5px 0; border-radius: 1px; }
+        @media (max-width: 640px) {
+            .nav-toggle { display: block; }
+            .site-nav-links { display: none; position: absolute; top: 56px; left: 0; right: 0; background: rgba(10,10,10,0.95); backdrop-filter: blur(16px); flex-direction: column; padding: 12px 16px; border-bottom: 1px solid var(--border); gap: 2px; }
+            .site-nav-links.open { display: flex; }
+            .site-nav-links a { width: 100%; padding: 10px 14px; }
+        }
+
+        /* ── Page Header ── */
+        .page-header {
+            padding: 72px 24px 56px;
+            text-align: center;
+            border-bottom: 1px solid var(--border);
+            position: relative;
+            overflow: hidden;
+        }
+        .page-header::before {
+            content: '';
+            position: absolute; top: -50%; left: -20%; width: 140%; height: 200%;
+            background: radial-gradient(ellipse at 30% 50%, rgba(100,181,246,0.04) 0%, transparent 50%),
+                        radial-gradient(ellipse at 70% 50%, rgba(186,104,200,0.03) 0%, transparent 50%);
+            z-index: 0;
+        }
+        .page-header > * { position: relative; z-index: 1; }
+        .page-header h1 { font-family: 'Playfair Display', serif; font-size: 2.4rem; font-weight: 900; margin-bottom: 12px; }
+        .page-header p { color: var(--text-muted); font-size: 1rem; max-width: 520px; margin: 0 auto; }
+
+        /* ── Blog Grid ── */
+        .blog-container { max-width: 900px; margin: 0 auto; padding: 48px 24px 80px; }
+
+        .blog-card {
+            display: flex;
+            gap: 28px;
+            padding: 32px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            margin-bottom: 20px;
+            transition: all 0.25s;
+            text-decoration: none;
+            color: var(--text);
+        }
+        .blog-card:hover { border-color: rgba(100,181,246,0.2); transform: translateY(-2px); box-shadow: 0 8px 32px rgba(0,0,0,0.3); }
+
+        .blog-date {
+            flex-shrink: 0;
+            width: 60px;
+            text-align: center;
+        }
+        .blog-date .month { font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; letter-spacing: 2px; text-transform: uppercase; color: var(--accent); display: block; }
+        .blog-date .day { font-family: 'Playfair Display', serif; font-size: 1.8rem; font-weight: 900; color: var(--text); display: block; line-height: 1.1; }
+        .blog-date .year { font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; color: var(--text-dim); display: block; }
+
+        .blog-content { flex: 1; }
+        .blog-content h2 { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 700; margin-bottom: 8px; line-height: 1.3; }
+        .blog-content p { color: var(--text-muted); font-size: 0.9rem; line-height: 1.6; margin-bottom: 12px; }
+        .blog-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+        .blog-tag {
+            font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; letter-spacing: 0.5px;
+            padding: 3px 10px; border-radius: 12px; border: 1px solid;
+        }
+        .tag-r { color: var(--accent); border-color: rgba(100,181,246,0.25); background: var(--accent-glow); }
+        .tag-chipseq { color: var(--green); border-color: rgba(102,187,106,0.25); background: var(--green-dim); }
+        .tag-setup { color: var(--orange); border-color: rgba(255,167,38,0.25); background: var(--orange-dim); }
+        .tag-bioc { color: var(--purple); border-color: rgba(186,104,200,0.25); background: var(--purple-dim); }
+
+        .read-time { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--text-dim); }
+
+        @media (max-width: 640px) {
+            .blog-card { flex-direction: column; gap: 16px; padding: 24px; }
+            .blog-date { display: flex; align-items: center; gap: 8px; width: auto; text-align: left; }
+        }
+
+        /* ── Footer ── */
+        .site-footer { text-align: center; padding: 32px 24px; border-top: 1px solid var(--border); color: var(--text-dim); font-size: 0.8rem; }
+        .site-footer a { color: var(--accent); text-decoration: none; }
+
+        html { scroll-behavior: smooth; }
+        ::selection { background: rgba(100,181,246,0.3); }
+    </style>
+</head>
+<body>
+
+    <nav class="site-nav">
+        <div class="site-nav-inner">
+            <a href="index.html" class="site-nav-brand">Arrosan <span>R.</span></a>
+            <button class="nav-toggle" onclick="document.querySelector('.site-nav-links').classList.toggle('open')" aria-label="Toggle navigation">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="site-nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="blog.html" class="active">Blog</a></li>
+                <li><a href="repos.html">Repositories</a></li>
+                <li><a href="protocols.html">Protocols</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <h1>Blog</h1>
+        <p>Notes on bioinformatics, computational biology, and research workflows.</p>
+    </header>
+
+    <main class="blog-container">
+
+        <!-- Blog Post 1 -->
+        <a href="blog/r-rstudio-bioinformatics-setup.html" class="blog-card">
+            <div class="blog-date">
+                <span class="month">Mar</span>
+                <span class="day">19</span>
+                <span class="year">2026</span>
+            </div>
+            <div class="blog-content">
+                <h2>Setting Up R &amp; RStudio for Bioinformatics Analysis</h2>
+                <p>A complete walkthrough for installing R, RStudio, and essential Bioconductor packages on macOS — from zero to a fully configured bioinformatics workstation for ChIP-seq and genomics.</p>
+                <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px;">
+                    <div class="blog-tags">
+                        <span class="blog-tag tag-r">R</span>
+                        <span class="blog-tag tag-bioc">Bioconductor</span>
+                        <span class="blog-tag tag-chipseq">ChIP-seq</span>
+                        <span class="blog-tag tag-setup">Setup Guide</span>
+                    </div>
+                    <span class="read-time">10 min read</span>
+                </div>
+            </div>
+        </a>
+
+        <!-- Blog Post 2 (Placeholder) -->
+        <a href="#" class="blog-card" style="opacity: 0.5; pointer-events: none;">
+            <div class="blog-date">
+                <span class="month">—</span>
+                <span class="day">··</span>
+                <span class="year">2026</span>
+            </div>
+            <div class="blog-content">
+                <h2>More posts coming soon...</h2>
+                <p>Stay tuned for more guides on ChIP-seq pipelines, conda environment management, SLURM job scripting, and R-based genomics workflows.</p>
+                <div class="blog-tags">
+                    <span class="blog-tag tag-setup">Coming Soon</span>
+                </div>
+            </div>
+        </a>
+
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; 2026 Arrosan Rajalingam &nbsp;·&nbsp; <a href="https://arrosanrajalingam.github.io">arrosanrajalingam.github.io</a></p>
+    </footer>
+
+</body>
+</html>
